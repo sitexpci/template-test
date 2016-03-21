@@ -1,0 +1,3960 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="ms.pagetype" content="conceptual" />
+    <meta name="ms.sitename" content="DOCS" />
+    <meta name="ROBOTS" content="INDEX, FOLLOW" />
+<meta name="_docfxVersion" content="1.6.0.0" />
+<meta name="_mockServerUrl" content="https://apiexproxy.azurewebsites.net/svc" />
+<meta name="_appTitle" content="Hello Rest Api" />
+<meta name="title" content="Azure AD Graph API Entity and Complex Type Reference" />
+<meta name="ms.TocTitle" content="Entity and complex type reference" />
+<meta name="ms.topic" content="reference (API)" />
+<meta name="ms.ContentId" content="88f6e187-70db-4d90-b3b6-b8702bad1220" />
+<meta name="ms.date" content="01/26/2016" />
+<meta name="layout" content="Conceptual" />
+<meta name="toc_asset_id" content="TOC.json" />
+<meta name="toc_rel" content="TOC.json" />
+<meta name="breadcrumb_path" content="/toc.html" />
+
+    <title>Azure AD Graph API Entity and Complex Type Reference</title>
+    <link rel="stylesheet" href="_themes/css/conceptual.css">
+  </head>
+  <body>
+
+    <header id="header" ms.pgarea="header">
+  <div id="common-nav-placeholder">
+    <div class="container">
+      <a href="https://www.microsoft.com"><h3>Microsoft</h3></a>
+      <h5></h5>
+    </div>
+  </div>
+<div id="sub-header" class="container" ms.cmpgrp="breadcrumb">
+    <ul class="breadcrumbs"></ul>
+  </div>
+</header>
+
+    <div class="container" ms.pgarea="body">
+
+      <aside id="social" ms.cmpgrp="social">
+        <ol class="social-actions">
+          <li class="menu-theme">
+            <div class="dropdown-container">
+              <div class="dropdown">
+                <select id="theme-selector">
+                  <option value="">Light</option>
+                  <option value="theme-night">Dark</option>
+                  <option value="theme-hot-dog">Hot Dog</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li><a href="#comments-container" class="button button-small"><span class="icon icon-comments"></span> Comments</a></li>
+          <li><a href="" class="button button-small"><span class="icon icon-edit"></span> Edit</a></li>
+          <li><a href="#" class="button button-small sharebutton"><span class="icon icon-share"></span> Share</a></li>
+          <div class="share-container">
+            <li><a href="" class="share-twitter"><i class="fa fa-fw">&#xf099;</i> Twitter</a></li>
+            <li><a href="" class="share-facebook"><i class="fa fa-fw">&#xf09a;</i> Facebook</a></li>
+            <!--<li><a href="" class="share-slack"><i class="fa fa-fw">&#xf198;</i> Slack</a></li>-->
+          </div>
+        </ol>
+
+        <div id="menu-expand">
+          <h6><span id="menu-expand-icon">+ </span>Options</h6>
+        </div>
+      </aside>
+      
+      <div id="toc" ms.cmpgrp="left toc">
+        <nav id="sidebar"></nav>
+      </div>
+      
+      <div id="menu-nav" class="dropdown-container">
+        <div class="dropdown dropdown-full mobilenavi">
+          <select>
+          </select>
+        </div>
+      </div>
+
+      <div id="main">
+        <h1 id="entity-and-complex-type-reference-graph-api-reference">Entity and complex type reference | Graph API reference</h1>
+        <div id="metadata" ms.cmpgrp="page info">
+          <a href="" class="avatar"><span class="author-name" style="background-image: url(.png)" alt="Author Name"></span></a>
+          <div class="info">
+            <span class="name"><a href=""></a></span>
+            <div class="meta">
+              <time datetime="" class="date"></time>
+              <time datetime="" class="reading-time">62 min</time>
+              <ul class="contributors">
+                
+              </ul>
+            </div>
+          </div> 
+        </div>
+
+        <aside class="toc" ms.cmpgrp="intopic toc">
+          <h5>In this article</h5>
+        </aside>
+
+        <div><div class="content">
+<p> <em><strong>Applies to:</strong> Graph API | Azure Active Directory</em></p>
+<p><a id="Overview"> </a>
+This topic discusses the entities and complex types that are exposed by the Graph API.</p>
+<p>The Graph API is an OData 3.0 compliant REST API that provides programmatic access to directory objects in Azure Active Directory, such as users, groups, organizational contacts, and applications. </p>
+<div class="IMPORTANT"><h5>IMPORTANT</h5><p>Azure AD Graph API functionality is also available through <a href="https://graph.microsoft.io/">Microsoft Graph</a>, a unified API that also includes APIs from other Microsoft services like Outlook, OneDrive, OneNote, Planner, and Office Graph, all accessed through a single endpoint with a single access token.</p>
+</div>
+<h2 id="entity-reference">Entity reference</h2>
+<h3 id="application-entity-a-id-applicationentity-a-">Application Entity <a id="ApplicationEntity"> </a></h3>
+<p>Represents an application. Any application that outsources authentication to Azure AD must be registered in a directory. This involves telling Azure AD about your application, including the URL where it&#39;s located, the URL to send replies after authentication, the URI to identify your application, and more.  For more information, see <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-authentication-scenarios/#basics-of-registering-an-application-in-azure-ad">Basics of Registering an Application in Azure AD</a>. Inherits from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Create (POST)</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Update (PATCH)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">appId</td>
+<td style="text-align:left">Edm.String in version 1.5<br><br> Edm.Guid in previous versions</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The unique identifier for the application.</td>
+</tr>
+<tr>
+<td style="text-align:left">appRoles</td>
+<td style="text-align:left">Collection(<a href="#AppRoleType">AppRole</a>)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The collection of application roles that an application may declare. These roles can be assigned to users, groups or service principals.<br><br> <strong>Notes</strong>: Requires version 1.5, not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">availableToOtherTenants</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"><strong>true</strong> if the application is shared with other tenants; otherwise, <strong>false</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The time at which the application was deleted from the tenant. If the application has not been deleted, returns <strong>null</strong>. Deleted applications can be read from the <code>/deletedApplications</code> resource collection. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">displayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The display name for the application.</td>
+</tr>
+<tr>
+<td style="text-align:left">errorUrl</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">groupMembershipClaims</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">A bitmask that configures the &quot;groups&quot; claim issued in a user or OAuth 2.0 access token that the application expects. The bitmask values are: 0: None, 1: Security groups and Azure AD roles, 2: Reserved, and 4: Reserved. Setting the bitmask to 7 will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of.<br><br> <strong>Notes</strong>: Requires version 1.5.</td>
+</tr>
+<tr>
+<td style="text-align:left">homepage</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The URL to the application&#39;s homepage.</td>
+</tr>
+<tr>
+<td style="text-align:left">identifierUris</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The URIs that identify the application. For more information see, <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-objects/">Application Objects and Service Principal Objects</a>.<br><br> <strong>Notes</strong>: not nullable, the <strong>any</strong> operator is required for filter expressions on multi-valued properties; for more information, see [Supported Queries, Filters, and Paging Options].</td>
+</tr>
+<tr>
+<td style="text-align:left">keyCredentials</td>
+<td style="text-align:left">Collection(<a href="#KeyCredentialType">KeyCredential</a>)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The collection of key credentials associated with the application<br><br> <strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td style="text-align:left">knownClientApplications</td>
+<td style="text-align:left">Collection(Edm.Guid)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Client applications that are tied to this resource application. Consent to any of the known client applications will result in implicit consent to the resource application through a combined consent dialog (showing the OAuth permission scopes required by the client and the resource).<br><br> <strong>Notes</strong>: Requires version 1.5, not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">logoutUrl</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">mainLogo</td>
+<td style="text-align:left">Edm.Stream</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The main logo for the application.<br><br> <strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td style="text-align:left">oauth2AllowImplicitFlow</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Specifies whether this web application can request OAuth2.0 implicit flow tokens. The default is <strong>false</strong>.<br><br> <strong>Notes</strong>: Requires version 1.5, not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">oauth2AllowUrlPathMatching</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Specifies whether, as part of OAuth 2.0 token requests, Azure AD will allow path matching of the redirect URI against the application&#39;s <strong>replyUrls</strong>. The default is <strong>false</strong>.<br><br> <strong>Notes</strong>: Requires version 1.5, not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">oauth2Permissions</td>
+<td style="text-align:left">Collection(<a href="#OAuth2PermissionType">OAuth2Permission</a>)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The collection of OAuth 2.0 permission scopes that the web API (resource) application exposes to client applications. These permission scopes may be granted to client applications during consent.<br><br> <strong>Notes</strong>: Requires version 1.5, not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">oauth2RequiredPostResponse</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Specifies whether, as part of OAuth 2.0 token requests, Azure AD will allow POST requests, as opposed to GET requests. The default is false, which specifies that only GET requests will be allowed.<br><br> <strong>Notes</strong>: Requires version 1.5, not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The unique identifier for the application. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: <strong>key</strong>, immutable, not nullable, unique</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A string that identifies the object type. For applications the value is always &quot;Application&quot;. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</td>
+</tr>
+<tr>
+<td style="text-align:left">passwordCredentials</td>
+<td style="text-align:left">Collection(<a href="#PasswordCredentialType">PasswordCredential</a>)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The collection of password credentials associated with the application.<br><br> <strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td style="text-align:left">publicClient</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Specifies whether this application is a public client (such as an installed application running on a mobile device). Default is <strong>false</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left">replyUrls</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Specifies the URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.<br><br> <strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td style="text-align:left">requiredResourceAccess</td>
+<td style="text-align:left">Collection(<a href="#RequiredResourceAccessType">RequiredResourceAccess</a>)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Specifies resources that this application requires access to and the set of OAuth permission scopes and application roles that it needs under each of those resources. This pre-configuration of required resource access drives the consent experience.<br><br> <strong>Notes</strong>: Requires version 1.5, not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">samlMetadataUrl</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The URL to the SAML metadata for the application.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong>   </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">From Multiplicity</th>
+<th style="text-align:left">To</th>
+<th style="text-align:left">To Multiplicity</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">extensionProperties</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#ExtensionPropertyEntity">ExtensionProperty</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">The extension properties associated with the application. Requires 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">owners</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Directory objects that are owners of the application. The owners are a set of non-admin users who are allowed to modify this object. Requires version 2013-11-08 or newer. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<h4 id="supported-operations">Supported Operations</h4>
+<p>The following operations are supported on applications (HTTP methods are listed in parentheses):</p>
+<ul>
+<li>create (CREATE)</li>
+<li>read (READ)</li>
+<li>update (PATCH)</li>
+<li>delete (DELETE)</li>
+</ul>
+<p>The following operations are supported on application navigation properties. Not all operations may be supported on every navigation property.</p>
+<ul>
+<li>read (READ)</li>
+<li>update (POST)</li>
+<li>delete (DELETE)</li>
+</ul>
+<p>The following action may be called on applications.</p>
+<ul>
+<li>[restore] to restore a deleted application. Requires version 1.5 or newer.</li>
+</ul>
+<hr>
+<h3 id="approleassignment-entity-a-id-approleassignmententity-a-">AppRoleAssignment Entity <a id="AppRoleAssignmentEntity"> </a></h3>
+<p>Used to record when a user or group is assigned to an application. In this case, the role assignment will result in an application tile showing up on the user&#39;s app access panel. This entity may also be used to grant another application (modeled as a service principal) access to a resource application in a particular role. You can create, read, update, and delete role assignments. Inherits from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</p>
+<p><strong>Important</strong>: Introduced in version 1.5.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Create (POST)</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Update (PATCH)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">creationTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The time when the grant was created.</td>
+</tr>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">This property is not valid for app role assignment and always returns <strong>null</strong>. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The role id that was assigned to the principal. This role must be declared by the target resource application <strong>resourceId</strong> in its <strong>appRoles</strong> property. Where the resource does not declare any permissions, a default id (zero GUID) must be specified.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">principalDisplayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The display name of the principal that was granted the access.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The unique identifier for the application role assignment. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: <strong>key</strong>, immutable, not nullable, unique.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A string that identifies the object type. For application role assignments the value is always &quot;AppRoleAssignment&quot;. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</td>
+</tr>
+<tr>
+<td style="text-align:left">principalId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The unique identifier (<strong>objectId</strong>) for the principal being granted the access.<br><br> <strong>Notes</strong>: required.</td>
+</tr>
+<tr>
+<td style="text-align:left">principalType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The type of principal. This can either be &quot;User&quot;, &quot;Group&quot; or &quot;ServicePrincipal&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">resourceDisplayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The display name of the resource to which the assignment was made.</td>
+</tr>
+<tr>
+<td style="text-align:left">resourceId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The unique identifier (<strong>objectId</strong>) for the target resource (service principal) for which the assignment was made.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong><br>None.</p>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<hr>
+<h3 id="contact-entity-a-id-contactentity-a-">Contact Entity <a id="ContactEntity"> </a></h3>
+<p>Represents an organizational contact. Inherits from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</p>
+<p>Organizational contacts represent users that are not in your company directory. They are mail-enabled entities and typically represent individuals who are external to your company or organization. Organizational contacts cannot be authenticated using Azure AD, nor can they be assigned licenses. </p>
+<p>Organizational contacts can be created in your tenant through syncing with an on-premises directory using Azure AD Connect, or they can be created through one of the Exchange Online management portals or the Exchange Online PowerShell cmdlets. For more information about Azure AD Connect, see <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect/">Integrating your on-premises identities with Azure Active Directory</a>. For more information about Exchange Online management tools, see <a href="https://technet.microsoft.com/en-us/library/exchange-online-administration-and-management.aspx#BKMK_ExchangeAdministrationCenter">Exchange Online Setup and Administration</a>. </p>
+<p>You cannot create organizational contacts with the Graph API. You can, however, update and delete contacts that are not currently synced from an on-premises directory; that is, contacts for which the <strong>dirSyncEnabled</strong> property is <strong>null</strong> or <strong>false</strong>. You cannot update or delete contacts for which the <strong>dirSyncEnabled</strong> property is <strong>true</strong>.</p>
+<p><strong>Note</strong>: Organizational contacts are directory entities, which represent external users. They should not be confused with O365 Outlook Personal contacts. </p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Update (PATCH)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">city</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The city in which the contact is located.</td>
+</tr>
+<tr>
+<td style="text-align:left">country</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The country/region in which the contact is located.</td>
+</tr>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">This property is not valid for contacts and always returns <strong>null</strong>. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">department</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The name for the department in which the contact works.</td>
+</tr>
+<tr>
+<td style="text-align:left">dirSyncEnabled</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"><strong>true</strong> if this object is synced from an on-premises directory; <strong>false</strong> if this object was originally synced from an on-premises directory but is no longer synced; <strong>null</strong> if this object has never been synced from an on-premises directory (default).</td>
+</tr>
+<tr>
+<td style="text-align:left">displayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The display name for the contact.</td>
+</tr>
+<tr>
+<td style="text-align:left">facsimileTelephoneNumber</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The telephone number of the contact&#39;s business fax machine.</td>
+</tr>
+<tr>
+<td style="text-align:left">givenName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The given name (first name) of the contact.</td>
+</tr>
+<tr>
+<td style="text-align:left">jobTitle</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The contact&#39;s job title.</td>
+</tr>
+<tr>
+<td style="text-align:left">lastDirSyncTime</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Indicates the last time at which the object was synced with the on-premises directory.</td>
+</tr>
+<tr>
+<td style="text-align:left">mail</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The SMTP address for the contact, for example, &quot;jeff@contoso.onmicrosoft.com&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">mailNickname</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The mail alias for the contact.</td>
+</tr>
+<tr>
+<td style="text-align:left">mobile</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The primary cellular telephone number for the contact.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The unique identifier for the contact. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: <strong>key</strong>, immutable, not nullable, unique.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A string that identifies the object type. For contacts the value is always &quot;Contact&quot;. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</td>
+</tr>
+<tr>
+<td style="text-align:left">physicalDeliveryOfficeName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The office location in the contact&#39;s place of business.</td>
+</tr>
+<tr>
+<td style="text-align:left">postalCode</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The postal code for the contact&#39;s postal address. The postal code is specific to the contact&#39;s country/region. In the United States of America, this attribute contains the ZIP code.</td>
+</tr>
+<tr>
+<td style="text-align:left">provisioningErrors</td>
+<td style="text-align:left">Collection(<a href="#ProvisioningErrorType">ProvisioningError</a>)</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A collection of error details that are preventing this contact from being provisioned successfully.<br><br> <strong>Note:</strong> not nullable</td>
+</tr>
+<tr>
+<td style="text-align:left">proxyAddresses</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"><strong>Note:</strong> unique, not nullable, the <strong>any</strong> operator is required for filter expressions on multi-valued properties; for more information, see [Supported Queries, Filters, and Paging Options].</td>
+</tr>
+<tr>
+<td style="text-align:left">sipProxyAddress</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Specifies the voice over IP (VOIP) session initiation protocol (SIP) address for the contact.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The state or province in the contact&#39;s address.</td>
+</tr>
+<tr>
+<td style="text-align:left">streetAddress</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The street address of the contact&#39;s place of business.</td>
+</tr>
+<tr>
+<td style="text-align:left">surname</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The contact&#39;s surname (family name or last name).</td>
+</tr>
+<tr>
+<td style="text-align:left">telephoneNumber</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The primary telephone number of the contact&#39;s place of business.</td>
+</tr>
+<tr>
+<td style="text-align:left">thumbnailPhoto</td>
+<td style="text-align:left">Edm.Stream</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">A thumbnail photo to be displayed for the contact.<br><br> <strong>Note:</strong> not nullable</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong>  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">From Multiplicity</th>
+<th style="text-align:left">To</th>
+<th style="text-align:left">To Multiplicity</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">manager</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a><br><br> (Only <a href="#UserEntity">User</a> and <a href="#ContactEntity">Contact</a> objects are supported.)</td>
+<td style="text-align:left">0..1</td>
+<td style="text-align:left">The user or contact that is this contact&#39;s manager. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> HTTP Methods: GET, PUT, DELETE</td>
+</tr>
+<tr>
+<td style="text-align:left">directReports</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a><br><br> (Only <a href="#UserEntity">User</a> and <a href="#ContactEntity">Contact</a> objects are supported.)</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">The contact&#39;s direct reports. (The users and contacts that have their manager property set to this contact.) Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> HTTP Methods: GET</td>
+</tr>
+<tr>
+<td style="text-align:left">memberOf</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a><br><br> (Only <a href="#GroupEntity">Group</a> objects are supported.)</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Groups that this contact is a member of. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> HTTP Methods: GET</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<h4 id="supported-operations">Supported Operations</h4>
+<p>The following operations are supported on contacts (the HTTP method used for each is in parentheses): </p>
+<ul>
+<li>Read (GET)</li>
+<li>Update (PATCH): only contacts that are not synced from an on-premises directory (<strong>dirSyncEnabled</strong> is <strong>null</strong> or <strong>false</strong>).</li>
+<li>Delete (DELETE)</li>
+</ul>
+<p>The following operations are supported on contact navigation properties; not all operations may be supported on every navigation property.</p>
+<ul>
+<li>Read (GET)</li>
+<li>Update (PUT): <strong>manager</strong> property, only on contacts that are not synced from an on-premises directory (<strong>dirSyncEnabled</strong> is <strong>null</strong> or <strong>false</strong>).</li>
+<li>Delete (DELETE): <strong>manager</strong> property, only on contacts that are not synced from an on-premises directory (<strong>dirSyncEnabled</strong> is <strong>null</strong> or  <strong>false</strong>).</li>
+</ul>
+<p>The following actions and functions may be called on contacts:</p>
+<ul>
+<li>[checkMemberGroups] to check a contact’s membership in a list of groups. The check is transitive.</li>
+<li>[getMemberGroups] to return a list of the groups that a contact is a member of. The check is transitive.</li>
+<li>[isMemberOf] to check whether a contact is a member of a specified group. The check is transitive.</li>
+</ul>
+<h4 id="remarks">Remarks</h4>
+<p>Contacts are mail-enabled entities and cannot be created by using the Graph API. They can be updated; however, update is only supported for contacts with the <strong>dirSyncEnabled</strong> property set <strong>null</strong> or <strong>false</strong>. Contacts can be deleted.</p>
+<hr>
+<h3 id="contract-entity-a-id-contractentity-a-">Contract Entity <a id="ContractEntity"> </a></h3>
+<p>Exists in Partner Tenants only. Partner Tenants are Azure AD tenants that belong to Microsoft Partners who are either part of Office 365 Syndication, Microsoft Cloud Solution Provider, or Microsoft Advisor partner programs. Represents an existing partnership that the Partner Tenant has with a Customer Tenant. Read-only. Inherits from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</p>
+<p><strong>Important</strong>: Introduced in version 1.5.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Read(GET)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">customerContextId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">The unique identifier for the customer tenant referenced by this partnership. Corresponds to the <strong>objectId</strong> property of the customer tenant&#39;s <a href="#TenantDetailEntity">TenantDetail</a> object.</td>
+</tr>
+<tr>
+<td style="text-align:left">defaultDomainName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">A copy of the customer tenant&#39;s default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant&#39;s default domain name changes.</td>
+</tr>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">This property is not valid for contracts and always returns <strong>null</strong>. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">displayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">A copy of the customer tenant&#39;s display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant&#39;s display name changes.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">A string that identifies the object type. The value is always “Contract”. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The unique identifier for the partnership. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>. <br> <br> <strong>Notes</strong>: <strong>key</strong>, immutable, not nullable, unique.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong><br>None.</p>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<h4 id="supported-operations">Supported Operations</h4>
+<p>The following operations are supported on contracts (the HTTP method used for each is in parentheses): </p>
+<ul>
+<li>Read (GET)</li>
+</ul>
+<hr>
+<h3 id="device-entity-a-id-deviceentity-a-">Device Entity <a id="DeviceEntity"> </a></h3>
+<p>Represents a device registered in the directory. Inherits from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Create (POST)</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Update (PATCH)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">accountEnabled</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">alternativeSecurityIds</td>
+<td style="text-align:left">Collection(<a href="#AlternativeSecurityIdType">AlternativeSecurityId</a>)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"><strong>Notes</strong>: not nullable, the <strong>any</strong> operator is required for filter expressions on multi-valued properties; for more information, see [Supported Queries, Filters, and Paging Options].</td>
+</tr>
+<tr>
+<td style="text-align:left">approximateLastLogonTimeStamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">This property is not valid for devices and always returns <strong>null</strong>. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">deviceId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">deviceObjectVersion</td>
+<td style="text-align:left">Edm.Int32</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">deviceOSType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The type of operating system on the device.</td>
+</tr>
+<tr>
+<td style="text-align:left">deviceOSVersion</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The version of the operating system on the device</td>
+</tr>
+<tr>
+<td style="text-align:left">devicePhysicalIds</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td style="text-align:left">dirSyncEnabled</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"><strong>true</strong> if this object is synced from an on-premises directory; <strong>false</strong> if this object was originally synced from an on-premises directory but is no longer synced; <strong>null</strong> if this object has never been synced from an on-premises directory (default).</td>
+</tr>
+<tr>
+<td style="text-align:left">displayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The display name for the device.</td>
+</tr>
+<tr>
+<td style="text-align:left">isCompliant</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"><strong>true</strong> if the device complies with Mobile Device Management (MDM) policies; otherwise, <strong>false</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left">IsManaged</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"><strong>true</strong> if the device is managed by a Mobile Device Management (MDM) app such as Intune; otherwise, <strong>false</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left">lastDirSyncTime</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The last time at which the object was synced with the on-premises directory.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The unique identifier for the device. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: <strong>key</strong>, immutable, not nullable, unique</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A string that identifies the object type. For devices the value is always &quot;Device&quot;. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">From Multiplicity</th>
+<th style="text-align:left">To</th>
+<th style="text-align:left">To Multiplicity</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">registeredOwners</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#UserEntity">User</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Users that are registered owners of the device.</td>
+</tr>
+<tr>
+<td style="text-align:left">registeredUsers</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#UserEntity">User</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Users that are registered users of the device.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<h4 id="supported-operations">Supported Operations</h4>
+<p>The following operations are supported on devices (HTTP methods are listed in parentheses):</p>
+<ul>
+<li>Create (CREATE)</li>
+<li>Read (READ)</li>
+<li>Update (PATCH)</li>
+<li>Delete (DELETE)</li>
+</ul>
+<p>The following operations are supported on device navigation properties. Not all operations may be supported on every navigation property.</p>
+<ul>
+<li>Read (READ)</li>
+<li>Update (PUT)</li>
+<li>Delete (DELETE)</li>
+</ul>
+<p>No functions or actions are supported on devices.</p>
+<hr>
+<h3 id="directorylinkchange-entity-a-id-directorylinkchangeentity-a-">DirectoryLinkChange Entity <a id="DirectoryLinkChangeEntity"> </a></h3>
+<p>A <strong>DirectoryLinkChange</strong> object is returned in the result set of a differential query to indicate that a property of a contact, a user, or a group that is represented by a link has changed since the last differential query. The <strong>DirectoryLinkChange</strong> object will represent a change to a user’s or contact’s <strong>manager</strong> property or a change to a group’s <strong>members</strong> property. For more information about differential queries, see [Differential Query]. Inherits from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">associationType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">A string that identifies the association type to which the change applies. The value is either &quot;Member&quot; or &quot;Manager&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">This property is not valid for directory link change objects and always returns <strong>null</strong>. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The unique identifier for the directory link change object. For <strong>DirectoryLinkChange</strong> objects, the value is always 00000000-0000-0000-0000-000000000000. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Note: key</strong> immutable, not nullable, unique</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">A string that identifies the object type. For <strong>DirectoryLinkChange</strong> objects, the value is always &quot;DirectoryLinkChange&quot;. <a href="#DirectoryObjectEntity">DirectoryObject</a></td>
+</tr>
+<tr>
+<td style="text-align:left">sourceObjectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The object ID for the source object; for example, &quot;7373b0af-d462-406e-ad26-f2bc96d823d8&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">sourceObjectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">A string that identifies the source object type; this will be one of the following: &quot;Group&quot;, &quot;User&quot;, or &quot;Contact&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">sourceObjectUri</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The URI for the source object; for example, <code>&quot;https://graph.windows.net/contoso.com/groups/7373b0af-d462-406e-ad26-f2bc96d823d8&quot;</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">targetObjectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The object ID for the target object; for example, &quot;dca803ab-bf26-4753-bf20-e1c56a9c34e2&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">targetObjectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">A string that identifies the source object type; this will be one of the following: &quot;Group&quot;, &quot;User&quot;, or &quot;Contact&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">targetObjectUri</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The URI for the target object; for example, <code>&quot;https://graph.windows.net/contoso.com/users/dca803ab-bf26-4753-bf20-e1c56a9c34e2&quot;</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong><br>None.</p>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<hr>
+<h3 id="directoryobject-entity-a-id-directoryobjectentity-a-">DirectoryObject Entity <a id="DirectoryObjectEntity"> </a></h3>
+<p>Represents an Azure Active Directory object. The <strong>DirectoryObject</strong> type is the base type for most of the other directory entity types.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Create (POST)</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Update (PATCH)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The time at which the directory object was deleted. It only applies to those directory objects which can be restored. Currently it is only supported for deleted <a href="#ApplicationEntity">Application</a> objects; all other entities return <strong>null</strong> for this property.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A Guid that is the unique identifier for the object; for example, 12345678-9abc-def0-1234-56789abcde.<br><br> <strong>Notes</strong>: <strong>key</strong>, immutable, not nullable, unique.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A string that identifies the object type. For example, for groups the value is always &quot;Group&quot;.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong>   </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">From Multiplicity</th>
+<th style="text-align:left">To</th>
+<th style="text-align:left">To Multiplicity</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">createdObjects</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">DirectoryObject</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">The directory objects that were created by the current object. Read only. Requires version 2013-11-08 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">createdOnBehalfOf</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">DirectoryObject</td>
+<td style="text-align:left">0..1</td>
+<td style="text-align:left">The directory object that that this object was created on behalf of. Read only. Requires version 2013-11-08 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">manager</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">DirectoryObject</td>
+<td style="text-align:left">0..1</td>
+<td style="text-align:left">This object&#39;s manager. Valid on users and contacts. Returns a user or a contact.</td>
+</tr>
+<tr>
+<td style="text-align:left">directReports</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">DirectoryObject</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Users and contacts that report to this object. Valid on users and contacts. Returns users and contacts. Read only.</td>
+</tr>
+<tr>
+<td style="text-align:left">members</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">DirectoryObject</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Objects that are members of this object. Valid on groups and roles. On groups, returns contacts, users, and groups. On roles, returns users and service principals.</td>
+</tr>
+<tr>
+<td style="text-align:left">memberOf</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">DirectoryObject</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Objects that this object is a member of. Valid on contacts, groups, service principals, and users. On contacts, returns groups. On groups, returns groups. On users, returns groups and roles. On service principals, returns roles. Read only.<br><br> The property is not transitive. For example, if User A is a member of Group B and Group B is a member of Group C, the memberOf property on User A will not return Group C.</td>
+</tr>
+<tr>
+<td style="text-align:left">ownedObjects</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">DirectoryObject</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">The directory objects that are owned by the current object. Read only. Requires version 2013-11-08 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">owners</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">DirectoryObject</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">The directory objects that are owners of the current object. The owners are a set of non-admin users who are allowed to modify this object. Requires version 2013-11-08 or newer.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Not all navigation properties are necessarily valid on the entity types that inherit from <strong>DirectoryObject</strong>. If a request for a property that is not valid for a specific entity is sent, a <strong>400 Bad Request</strong> response is returned. For more information about which navigation properties are valid on specific entities, consult the documentation for that entity type. </p>
+<h4 id="supported-operations">Supported Operations</h4>
+<p>The full set of operations that are supported on directory objects are the following (the HTTP method used for each is in parentheses): Create (POST), Read (GET), Update (PATCH), and Delete (DELETE). However, not all of these operations are supported on every entity type. The declared properties of directory object are read-only; they cannot be specified in create or update operations.</p>
+<p>The potential set of operations supported on each of the navigation properties are: </p>
+<ul>
+<li><strong>createdObjects</strong>: Read (GET).</li>
+<li><strong>createdOnBehalfOf</strong>: Read (GET).</li>
+<li><strong>manager</strong>: Read (GET), Update (PUT), and Delete (DELETE).</li>
+<li><strong>directReports</strong>: Read (GET). </li>
+<li><strong>members</strong>: Read (GET), Update (POST), and Delete (DELETE).</li>
+<li><strong>memberOf</strong>: Read (GET).</li>
+<li><strong>ownedObjects</strong>: Read (GET).</li>
+<li><strong>owners</strong>: Read (GET), Update (POST), and Delete (DELETE).</li>
+</ul>
+<p>Not all navigation properties are necessarily supported on every entity type, nor are the set of potential operations for a navigation property necessarily supported on every entity type.</p>
+<p>Whether a particular directory object supports a particular action or function, depends on the type of the directory object (the <strong>objectType</strong> property). For information about which object types support which functions or actions, see the documentation of the particular object, for example, user, group, etc., or of a particular function.</p>
+<p>Consult the documentation for the specific entity type for information about operations supported for an entity.</p>
+<hr>
+<h3 id="directoryrole-entity-a-id-directoryroleentity-a-">DirectoryRole Entity <a id="DirectoryRoleEntity"> </a></h3>
+<p>Represents an Azure AD directory role. Azure AD directory roles are also known as <em>administrator roles</em>. For more information about directory (administrator) roles, see <a href="http://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/">Assigning administrator roles in Azure AD</a>.</p>
+<p>With the Graph API, you can assign users and service principals to directory roles to grant them the permissions of the target role. You can read directory role objects and update the <strong>members</strong> navigation property of directory roles, but you cannot delete directory roles or update their declared properties. Inherits from <a href="#DirectoryObjectEntity">DirectoryObject</a>. </p>
+<p>To read a directory role or update its members, it must first be activated in the tenant. In versions prior to 1.5, all directory roles are activated by default. Beginning with version 1.5, only the <strong>Company Administrators</strong> directory role is activated by default. To activate other available directory roles you send a POST request with the <strong>objectId</strong> of the <a href="#DirectoryRoleTemplateEntity">DirectoryRoleTemplate</a> on which the directory role is based. See <strong>Supported Operations</strong> and <strong>Remarks</strong> for more information.</p>
+<p><strong>Important</strong>: Beginning with version 1.5, the <strong>Role</strong> entity type is renamed to <strong>DirectoryRole</strong>.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Create (POST)</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">This property is not valid for directory roles and always returns <strong>null</strong>. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">description</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The description for the directory role.</td>
+</tr>
+<tr>
+<td style="text-align:left">displayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The display name for the directory role.</td>
+</tr>
+<tr>
+<td style="text-align:left">isSystem</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"><strong>true</strong> if the role is a system role; otherwise, <strong>false</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The unique identifier for the directory role. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: <strong>key</strong>, immutable, not nullable, unique.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">A string that identifies the object type. For directory roles the value is always &quot;DirectoryRole&quot;. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Note</strong>: In versions prior to 1.5, the value will be &quot;Role&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">roleDisabled</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"><strong>true</strong> if the directory role is disabled; otherwise, <strong>false</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left">roleTemplateId</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The <strong>objectId</strong> of the <a href="#DirectoryRoleTemplateEntity">DirectoryRoleTemplate</a> that this role is based on. <br><br> <strong>Notes</strong>: In versions prior to version 1.5, the property is read only. In version 1.5 and later, the property must be specified when activating a directory role in a tenant with a POST operation. After the directory role has been activated, the property is read only.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong>   </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">From Multiplicity</th>
+<th style="text-align:left">To</th>
+<th style="text-align:left">To Multiplicity</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">members</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a><br><br> (<a href="#UserEntity">User</a> and <a href="#ServicePrincipalEntity">ServicePrincipal</a> are supported.</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Users and service principals that are members of this directory role. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> HTTP Methods: GET, POST, DELETE</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<h4 id="supported-operations">Supported Operations</h4>
+<p>The following operations are supported on directory roles (the HTTP method used for each is in parentheses): </p>
+<ul>
+<li>Create (POST): Supported in version 1.5 and later. Activates a directory role in the tenant using the <a href="#DirectoryRoleTemplateEntity">DirectoryRoleTemplate</a> specified by the <strong>roleTemplateId</strong> property in the request. After the directory role is activated, you can add and delete users and service principals from the role.</li>
+<li>Read (GET)</li>
+</ul>
+<p>The following operations are supported on directory role navigation properties: </p>
+<ul>
+<li>Read (GET)</li>
+<li>Update (POST)</li>
+<li>Delete (DELETE)</li>
+</ul>
+<p>No functions or actions may be called on directory roles; however, you can call [getMemberObjects] on a <a href="#UserEntity">User</a> or <a href="#ServicePrincipalEntity">ServicePrincipal</a> to determine its directory role memberships. Note that for users, this function also returns its direct and transitive group memberships.</p>
+<h4 id="remarks">Remarks</h4>
+<ul>
+<li>In version 1.5 and later, only the <strong>Company Adminstrators</strong> role is activated (and visible) in a tenant by default. Use the Create (POST) operation to activate additional directory roles. The operation specifies the <strong>roleTemplateId</strong> property in the request. This property contains the <strong>objectId</strong> of the <a href="#DirectoryRoleTemplateEntity">DirectoryRoleTemplate</a> instance that corresponds to the role you want to activate. After the directory role is activated you can add and delete users and service principals from it with the Graph API. In versions prior to 1.5, all directory roles (represented by the <strong>Role</strong> entity) are activated by default and the Create (POST) operation is not supported.</li>
+<li>Directory roles cannot be deleted using the Graph API. Updates are supported on the <strong>members</strong> navigation property only. Both add and remove are supported on this property.</li>
+<li>Query filter expressions are not supported on directory roles.</li>
+</ul>
+<hr>
+<h3 id="directoryroletemplate-entity-a-id-directoryroletemplateentity-a-">DirectoryRoleTemplate Entity <a id="DirectoryRoleTemplateEntity"> </a></h3>
+<p>Represents a directory role template. A directory role template specifies the property values of a directory role (<a href="#DirectoryRoleEntity">DirectoryRole</a>). There is an associated directory role template object for each of the directory roles that may be activated in a tenant. Inherits from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</p>
+<p>To read a directory role or update its members, it must first be activated in the tenant. In versions prior to 1.5, all directory roles are activated by default. Beginning with version 1.5, only the <strong>Company Administrators</strong> directory role is activated by default. To activate other available directory roles you send a POST request to the /directoryRoles endpoint with the <strong>objectId</strong> of the directory role template on which the directory role is based specified in the <strong>roleTemplateId</strong> parameter of the request. For more information, see <a href="#DirectoryRoleEntity">DirectoryRole</a>.</p>
+<p><strong>Note</strong>: A directory role template is exposed for the <strong>Users</strong> directory role. The <strong>Users</strong> directory role is implicit and is not visible to directory clients. Every <a href="#UserEntity">User</a> in the tenant is assigned to this role by the infrastructure. The role is already activated. Do not use this template.</p>
+<p><strong>Important</strong>: Introduced in version 1.5.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">description</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The description to set for the directory role.</td>
+</tr>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">This property is not valid for directory role templates and always returns <strong>null</strong>. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">displayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The display name to set for the directory role.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The unique identifier for the template. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>. In version 1.5 and later, you specify the <strong>objectId</strong> of the directory role template for the <strong>roleTemplateId</strong> property in the POST request activate a <a href="#DirectoryRoleEntity">DirectoryRole</a> in a tenant. <br><br> <strong>Notes</strong>: <strong>key</strong>, immutable, not nullable, unique.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">A string that identifies the object type. For role templates the value is always &quot;RoleTemplate&quot;. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong><br>None.</p>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<h4 id="supported-operations">Supported Operations</h4>
+<p>The following operations are supported on directory role templates (HTTP methods are listed in parentheses):</p>
+<ul>
+<li>read (GET)</li>
+</ul>
+<hr>
+<h3 id="domain-entity-preview-a-id-domainentity-a-">Domain Entity (preview) <a id="DomainEntity"> </a></h3>
+<p>Represents a domain associated with the tenant.</p>
+<p><strong>Important</strong>: Only available in version beta.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Create<br>(POST)</th>
+<th>Read<br>(GET)</th>
+<th>Update<br>(PATCH)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>authenticationType</td>
+<td>Edm.String</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+<td>Indicates what authentication type the domain is configured for. The value is either &quot;Managed&quot; or &quot;Federated&quot;.</td>
+</tr>
+<tr>
+<td>availabilityStatus</td>
+<td>Edm.String</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+<td>This property is always null except when the [verify] action is used. When the [verify] action is used, a <strong>Domain</strong> entity is returned in the response. The <strong>availabilityStatus</strong> property of the <strong>Domain</strong> entity in the response is either &quot;AvailableImmediately&quot; or &quot;EmailVerifiedDomainTakeoverScheduled&quot;.</td>
+</tr>
+<tr>
+<td>isAdminManaged</td>
+<td>Edm.Boolean</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+<td><strong>false</strong>, if the DNS record management of the domain has been delegated to Office 365. Otherwise, <strong>true</strong>.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>isDefault</td>
+<td>Edm.Boolean</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Indicates whether or not this is the default domain that is used for user creation. There is only one default domain per company.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>isInitial</td>
+<td>Edm.Boolean</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+<td>Indicates whether or not this is the initial domain created by Microsoft Online Services (companyname.onmicrosoft.com). There is only one initial domain per company.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>isRoot</td>
+<td>Edm.Boolean</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+<td>For subdomains, this represents the root domain. Only root domains need to be verified, and all subdomains will be automatically verified.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>isVerified</td>
+<td>Edm.Boolean</td>
+<td>No</td>
+<td>Yes</td>
+<td></td>
+<td>Indicates whether this domain has completed domain ownership verification or not.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Edm.String</td>
+<td>Required</td>
+<td>Filterable</td>
+<td></td>
+<td>The fully qualified name of the domain.<br><br><strong>Notes</strong>: key, immutable, not nullable, unique</td>
+</tr>
+<tr>
+<td>supportedServices</td>
+<td>Collection(Edm.String)</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>The capabilities assigned to the domain. Can include 0, 1 or more of following values:<ul><li>&quot;Email&quot;</li><li>&quot;Sharepoint&quot;</li><li>&quot;EmailInternalRelayOnly&quot;</li><li>&quot;OfficeCommunicationsOnline&quot;</li><li>&quot;SharePointDefaultDomain&quot;</li><li>&quot;FullRedelegation&quot;</li><li>&quot;SharePointPublic&quot;</li><li>&quot;OrgIdAuthentication&quot;</li><li>&quot;Yammer&quot;</li><li>&quot;Intune&quot;</li></ul><br><br>Most of these values are read-only. The values which you can add/remove using Graph API includes:<ul><li>&quot;Email&quot;</li><li>&quot;OfficeCommunicationsOnline&quot;</li><li>&quot;Yammer&quot;</li></ul><br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>From Multiplicity</th>
+<th>To</th>
+<th>To Multiplicity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>serviceConfigurationRecords</td>
+<td>*</td>
+<td><a href="#DomainDnsRecordEntity">DomainDnsRecord</a></td>
+<td>*</td>
+<td>DNS records that the customer has to add to the DNS zone file of the domain before the domain can be used by Microsoft Online services.</td>
+</tr>
+<tr>
+<td>verificationDnsRecords</td>
+<td>*</td>
+<td><a href="#DomainDnsRecordEntity">DomainDnsRecord</a></td>
+<td>*</td>
+<td>DNS records that the customer has to add to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> </p>
+<h3 id="domaindnsrecord-entity-preview-a-id-domaindnsrecordentity-a-">DomainDnsRecord Entity (preview) <a id="DomainDnsRecordEntity"> </a></h3>
+<p>For each domain in the tenant, you may be required to add DNS record(s) to the DNS zone file of the domain before the domain can be used by Microsoft Online Services.  The <strong>DomainDnsRecord</strong> entity is used to present such DNS records. Base entity for <a href="#DomainDnsCnameRecordEntity">DomainDnsCnameRecord</a>, <a href="#DomainDnsMxRecordEntity">DomainDnsMxRecord</a>, <a href="#DomainDnsSrvRecordEntity">DomainDnsSrvRecord</a> and <a href="#DomainDnsSrvRecordEntity">DomainDnsSrvRecord</a> entities.</p>
+<p><strong>Important</strong>: Only available in version beta.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Read<br>(GET)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dnsRecordId</td>
+<td>Edm.Guid</td>
+<td>Yes</td>
+<td>Unique identifier assigned to this entity.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>isOptional</td>
+<td>Edm.Boolean</td>
+<td>Yes</td>
+<td>Indicates whether this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>label</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Indicates the value to use when configuring the name of the DNS record at the DNS host.</td>
+</tr>
+<tr>
+<td>recordType</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Indicates what type of DNS record this entity represents. The value can be one of the following:<ul><li>&quot;CName&quot;</li><li>&quot;Mx&quot;</li><li>&quot;Srv&quot;</li><li>&quot;Txt&quot;</li></ul><br><br><strong>Notes</strong>: key</td>
+</tr>
+<tr>
+<td>supportedService</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Indicates which Microsoft Online Service or feature has a dependency on this DNS record. Can be one of the following values:<ul><li><strong>null</strong></li><li>&quot;Email&quot;</li><li>&quot;Sharepoint&quot;</li><li>&quot;EmailInternalRelayOnly&quot;</li><li>&quot;OfficeCommunicationsOnline&quot;</li><li>&quot;SharePointDefaultDomain&quot;</li><li>&quot;FullRedelegation&quot;</li><li>&quot;SharePointPublic&quot;</li><li>&quot;OrgIdAuthentication&quot;</li><li>&quot;Yammer&quot;</li><li>&quot;Intune&quot;</li></ul></td>
+</tr>
+<tr>
+<td>ttl</td>
+<td>Edm.Int32</td>
+<td>Yes</td>
+<td>Indicates the value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> </p>
+<h3 id="domaindnscnamerecord-entity-preview-a-id-domaindnscnamerecordentity-a-">DomainDnsCnameRecord Entity (preview) <a id="DomainDnsCnameRecordEntity"> </a></h3>
+<p>Represents a CNAME record which needs to be added to the DNS zone file of a particular domain in the tenant. Inherited from <a href="#DomainDnsRecordEntity">DomainDnsRecord</a> entity.</p>
+<p><strong>Important</strong>: Only available in version beta.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Read<br>(GET)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>canonicalName</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Indicates the value to use when configuring the canonical name of the CNAME record at the DNS host.</td>
+</tr>
+<tr>
+<td>dnsRecordId</td>
+<td>Edm.Guid</td>
+<td>Yes</td>
+<td>Unique identifier assigned to this entity.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>isOptional</td>
+<td>Edm.Boolean</td>
+<td>Yes</td>
+<td>Indicates whether this CNAME record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>label</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Indicates the value to use when configuring the name of the CNAME record at the DNS host.</td>
+</tr>
+<tr>
+<td>recordType</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Indicates what type of DNS record this entity represents. The value is always &quot;CName&quot;.<br><br><strong>Notes</strong>: key</td>
+</tr>
+<tr>
+<td>supportedService</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Indicates which Microsoft Online Service or feature has a dependency on this CNAME record. Can be one of the following values:<ul><li><strong>null</strong></li><li>&quot;Email&quot;</li><li>&quot;Sharepoint&quot;</li><li>&quot;EmailInternalRelayOnly&quot;</li><li>&quot;OfficeCommunicationsOnline&quot;</li><li>&quot;SharePointDefaultDomain&quot;</li><li>&quot;FullRedelegation&quot;</li><li>&quot;SharePointPublic&quot;</li><li>&quot;OrgIdAuthentication&quot;</li><li>&quot;Yammer&quot;</li><li>&quot;Intune&quot;</li></ul></td>
+</tr>
+<tr>
+<td>ttl</td>
+<td>Edm.Int32</td>
+<td>Yes</td>
+<td>Indicates the value to use when configuring the time-to-live (ttl) property of the CNAME record at the DNS host.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> </p>
+<h3 id="domaindnsmxrecord-entity-preview-a-id-domaindnsmxrecordentity-a-">DomainDnsMxRecord Entity (preview) <a id="DomainDnsMxRecordEntity"> </a></h3>
+<p>Represents an MX record which needs to be added to the DNS zone file of a particular domain in the tenant. Inherited from <a href="#DomainDnsRecordEntity">DomainDnsRecord</a> entity.</p>
+<p><strong>Important</strong>: Only available in version beta.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Read<br>(GET)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dnsRecordId</td>
+<td>Edm.Guid</td>
+<td>Yes</td>
+<td>Unique identifier assigned to this entity.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>isOptional</td>
+<td>Edm.Boolean</td>
+<td>Yes</td>
+<td>Indicates whether this MX record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>label</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Value to use when configuring the Alias/Host/Name property of the MX record at the DNS host.</td>
+</tr>
+<tr>
+<td>mailExchange</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Value to use when configuring the Answer/Destination/Value of the MX record at the DNS host.</td>
+</tr>
+<tr>
+<td>recordType</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Indicates what type of DNS record this entity represents. The value is always &quot;Mx&quot;.<br><br><strong>Notes</strong>: key</td>
+</tr>
+<tr>
+<td>preference</td>
+<td>Edm.Int32</td>
+<td>Yes</td>
+<td>Value to use when configuring the Preference/Priority property of the MX record at the DNS host.</td>
+</tr>
+<tr>
+<td>supportedService</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Indicates which Microsoft Online Service or feature has a dependency on this CNAME record. Can be one of the following values:<ul><li><strong>null</strong></li><li>&quot;Email&quot;</li><li>&quot;Sharepoint&quot;</li><li>&quot;EmailInternalRelayOnly&quot;</li><li>&quot;OfficeCommunicationsOnline&quot;</li><li>&quot;SharePointDefaultDomain&quot;</li><li>&quot;FullRedelegation&quot;</li><li>&quot;SharePointPublic&quot;</li><li>&quot;OrgIdAuthentication&quot;</li><li>&quot;Yammer&quot;</li><li>&quot;Intune&quot;</li></ul></td>
+</tr>
+<tr>
+<td>ttl</td>
+<td>Edm.Int32</td>
+<td>Yes</td>
+<td>Value to use when configuring the time-to-live (ttl) property of the MX record at the DNS host.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> </p>
+<h3 id="domaindnssrvrecord-entity-preview-a-id-domaindnssrvrecordentity-a-">DomainDnsSrvRecord Entity (preview) <a id="DomainDnsSrvRecordEntity"> </a></h3>
+<p>Represents an SRV record which needs to be added to the DNS zone file of a particular domain in the tenant. Inherited from <a href="#DomainDnsRecordEntity">DomainDnsRecord</a> entity.</p>
+<p><strong>Important</strong>: Only available in version beta.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Read<br>(GET)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dnsRecordId</td>
+<td>Edm.Guid</td>
+<td>Yes</td>
+<td>Unique identifier assigned to this entity.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>isOptional</td>
+<td>Edm.Boolean</td>
+<td>Yes</td>
+<td>Indicates whether this SRV record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>label</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Value to use when configuring the <strong>Name</strong> property of the SRV record at the DNS host.</td>
+</tr>
+<tr>
+<td>nameTarget</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Value to use when configuring the <strong>Target</strong> property of the SRV record at the DNS host.</td>
+</tr>
+<tr>
+<td>port</td>
+<td>Edm.Int32</td>
+<td>Yes</td>
+<td>Value to use when configuring the <strong>Port</strong> property of the SRV record at the DNS host.</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>Edm.Int32</td>
+<td>Yes</td>
+<td>Value to use when configuring the <strong>Priority</strong> property of the SRV record at the DNS host.</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Value to use when configuring the <strong>Protocol</strong> property of the SRV record at the DNS host.</td>
+</tr>
+<tr>
+<td>recordType</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Indicates what type of DNS record this entity represents. The value is always &quot;Srv&quot;.<br><br><strong>Notes</strong>: key</td>
+</tr>
+<tr>
+<td>Service</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Value to use when configuring the <strong>Service</strong> property of the SRV record at the DNS host.</td>
+</tr>
+<tr>
+<td>supportedService</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Indicates which Microsoft Online Service or feature has a dependency on this SRV record. Can be one of the following values:<ul><li><strong>null</strong></li><li>&quot;Email&quot;</li><li>&quot;Sharepoint&quot;</li><li>&quot;EmailInternalRelayOnly&quot;</li><li>&quot;OfficeCommunicationsOnline&quot;</li><li>&quot;SharePointDefaultDomain&quot;</li><li>&quot;FullRedelegation&quot;</li><li>&quot;SharePointPublic&quot;</li><li>&quot;OrgIdAuthentication&quot;</li><li>&quot;Yammer&quot;</li><li>&quot;Intune&quot;</li></ul></td>
+</tr>
+<tr>
+<td>ttl</td>
+<td>Edm.Int32</td>
+<td>Yes</td>
+<td>Value to use when configuring the <strong>Time-To-Live</strong> property of the SRV record at the DNS host.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>weight</td>
+<td>Edm.Int32</td>
+<td>Yes</td>
+<td>Value to use when configuring the <strong>Weight</strong> property of the SRV record at the DNS host.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> </p>
+<h3 id="domaindnstxtrecord-entity-preview-a-id-domaindnstxtrecordentity-a-">DomainDnsTxtRecord Entity (preview) <a id="DomainDnsTxtRecordEntity"> </a></h3>
+<p>Represents a TXT record which needs to be added to the DNS zone file of a particular domain in the tenant. Inherited from <a href="#DomainDnsRecordEntity">DomainDnsRecord</a> entity.</p>
+<p><strong>Important</strong>: Only available in version beta.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Read<br>(GET)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dnsRecordId</td>
+<td>Edm.Guid</td>
+<td>Yes</td>
+<td>Unique identifier assigned to this entity.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>isOptional</td>
+<td>Edm.Boolean</td>
+<td>Yes</td>
+<td>Indicates whether this MX record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td>label</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Value to use when configuring the Alias/Host/Name property of the MX record at the DNS host.</td>
+</tr>
+<tr>
+<td>recordType</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Indicates what type of DNS record this entity represents. The value is always &quot;Mx&quot;.<br><br><strong>Notes</strong>: key</td>
+</tr>
+<tr>
+<td>supportedService</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Indicates which Microsoft Online Service or feature has a dependency on this CNAME record. Can be one of the following values:<ul><li><strong>null</strong></li><li>&quot;Email&quot;</li><li>&quot;Sharepoint&quot;</li><li>&quot;EmailInternalRelayOnly&quot;</li><li>&quot;OfficeCommunicationsOnline&quot;</li><li>&quot;SharePointDefaultDomain&quot;</li><li>&quot;FullRedelegation&quot;</li><li>&quot;SharePointPublic&quot;</li><li>&quot;OrgIdAuthentication&quot;</li><li>&quot;Yammer&quot;</li><li>&quot;Intune&quot;</li></ul></td>
+</tr>
+<tr>
+<td>text</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ttl</td>
+<td>Edm.Int32</td>
+<td>Yes</td>
+<td>Value (in seconds) to use when configuring the Time-To-Live property of the TXT record at the DNS host.<br><br><strong>Notes</strong>: not nullable</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> </p>
+<h3 id="domaindnsunavailablerecord-entity-preview-a-id-domaindnsunavailablerecordentity-a-">DomainDnsUnavailableRecord Entity (preview) <a id="DomainDnsUnavailableRecordEntity"> </a></h3>
+<p>Inherited from <a href="#DomainDnsRecordEntity">DomainDnsRecord</a> entity. When you query for the navigation property <strong>serviceConfigurationRecords</strong> for a <a href="#DomainEntity">Domain</a> entity, you may get back one or more <a href="#DomainDnsCnameRecordEntity">DomainDnsCnameRecord</a>, <a href="#DomainDnsMxRecordEntity">DomainDnsMxRecord</a>, <a href="#DomainDnsSrvRecordEntity">DomainDnsSrvRecord</a> and/or <a href="#DomainDnsTxtRecordEntity">DomainDnsTxtRecord</a> entities. These entities indicate what DNS records you must add to the zone file of the domain, before the domain can be used by Microsoft Online Services. When it is not possible to generate such entities, a <strong>DomainDnsUnavailableRecord</strong> Entity is returned instead. </p>
+<p><strong>Important</strong>: Only available in version beta.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Read<br>(GET)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Edm.String</td>
+<td>Yes</td>
+<td>Provides the reason why the <strong>DomainDnsUnavailableRecord</strong> entity is returned.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="extensionproperty-entity-a-id-extensionpropertyentity-a-">ExtensionProperty Entity <a id="ExtensionPropertyEntity"> </a></h3>
+<p>Allows an application to define and use a set of additional properties that can be added to directory objects (users, groups, tenant details, devices, applications, and service principals) without the application requiring an external data store. For more information about extension properties, see [Directory Schema Extensions]. Inherits from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</p>
+<p><strong>Important</strong>: <strong>ExtensionProperty</strong> is introduced in version 1.5.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Create (POST)</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Update (PATCH)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">appDisplayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">dataType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Specifies the type of the directory extension property being added. Supported types are: Integer, LargeInteger, DateTime (must be specified in ISO 8601 - DateTime is stored in UTC), Binary, Boolean, and String.</td>
+</tr>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">This property is not valid for extension properties and always returns <strong>null</strong>. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The unique identifier for the permission scope. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: <strong>key</strong>, immutable, not nullable, unique.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A string that identifies the object type. For extension properties the value is always &quot;ExtensionProperty&quot;. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Specifies the display name for the directory extension property.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">isSyncedFromOnPremises</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Indicates whether the extension property is synced from the on premises directory.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">targetObjects</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The directory objects to which the directory extension property is being added. Supported directory entities that can be extended are: &quot;User&quot;, &quot;Group&quot;, &quot;TenantDetail&quot;, &quot;Device&quot;, &quot;Application&quot; and &quot;ServicePrincipal&quot;<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong><br>None.</p>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<hr>
+<h3 id="group-entity-a-id-groupentity-a-">Group Entity <a id="GroupEntity"> </a></h3>
+<p>Represents an Azure Active Directory Group. Inherits from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Create (POST)</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Update (PATCH)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">This property is not valid for groups and always returns <strong>null</strong>. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">description</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">An optional description for the group.</td>
+</tr>
+<tr>
+<td style="text-align:left">dirSyncEnabled</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"><strong>true</strong> if this object is synced from an on-premises directory; <strong>false</strong> if this object was originally synced from an on-premises directory but is no longer synced; <strong>null</strong> if this object has never been synced from an on-premises directory (default).</td>
+</tr>
+<tr>
+<td style="text-align:left">displayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The display name for the group. This property is required when a group is created and it cannot be cleared during updates.</td>
+</tr>
+<tr>
+<td style="text-align:left">lastDirSyncTime</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Indicates the last time at which the object was synced with the on-premises directory.</td>
+</tr>
+<tr>
+<td style="text-align:left">mail</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The SMTP address for the group, for example, &quot;serviceadmins@contoso.onmicrosoft.com&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">mailEnabled</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Specifies whether the group is mail-enabled. If the <strong>securityEnabled</strong> property is also <strong>true</strong>, the group is a mail-enabled security group; otherwise, the group is a Microsoft Exchange distribution group. Only (pure) security groups can be created using Azure AD Graph. For this reason, the property must be set <strong>false</strong> when creating a group and it cannot be updated using Azure AD Graph.</td>
+</tr>
+<tr>
+<td style="text-align:left">mailNickname</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The mail alias for the group. This property must be specified when a group is created.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The unique identifier for the group. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: <strong>key</strong>, immutable, not nullable, unique.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A string that identifies the object type. For groups the value is always &quot;Group&quot;. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</td>
+</tr>
+<tr>
+<td style="text-align:left">onPremisesSecurityIdentifier</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">provisioningErrors</td>
+<td style="text-align:left">Collection(<a href="#ProvisioningErrorType">ProvisioningError</a>)</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A collection of error details that are preventing this group from being provisioned successfully.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">proxyAddresses</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"><br><br> <strong>Notes</strong>: not nullable, the <strong>any</strong> operator is required for filter expressions on multi-valued properties; for more information, see [Supported Queries, Filters, and Paging Options].</td>
+</tr>
+<tr>
+<td style="text-align:left">securityEnabled</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Specifies whether the group is a security group. If the mailEnabled property is also true, the group is a mail-enabled security group; otherwise it is a security group. Only (pure) security groups can be created using Azure AD Graph. For this reason, the property must be set <strong>true</strong> when creating a group.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong>   </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">From Multiplicity</th>
+<th style="text-align:left">To</th>
+<th style="text-align:left">To Multiplicity</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">members</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a><br><br> (Only <a href="#ContactEntity">Contact</a>, <a href="#GroupEntity">Group</a>, <a href="#ServicePrincipalEntity">ServicePrincipal</a>, and <a href="#UserEntity">User</a> objects are supported)</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Users, contacts, groups, and service principals that are members of this group. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> HTTP Methods: GET (supported for all groups), POST (supported for security groups and mail-enabled security groups), DELETE (supported only for security groups)</td>
+</tr>
+<tr>
+<td style="text-align:left">memberOf</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a><br><br> (Only <a href="#GroupEntity">Group</a> objects are supported)</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Groups that this group is a member of. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> HTTP Methods: GET (supported for all groups)</td>
+</tr>
+<tr>
+<td style="text-align:left">owners</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Requires version 2013-11-08 or newer. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> HTTP Methods: GET (supported for all groups), POST (supported for security groups and mail-enabled security groups), DELETE (supported only for security groups)</td>
+</tr>
+<tr>
+<td style="text-align:left">appRoleAssignments</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Contains the set of applications that a group is assigned to.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">extensionProperties</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Contains the extension properties associated with the application. <br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<h4 id="supported-operations">Supported Operations</h4>
+<p>The following operations are supported on users (the HTTP method used for each is in parentheses): </p>
+<ul>
+<li>Create (POST): Supported only for security groups.</li>
+<li>Read (GET): Supported for all groups.</li>
+<li>Update (PATCH): Supported only for security groups and mail-enabled security groups. Not all properties can be updated.</li>
+<li>Delete (DELETE): Supported only for security groups.</li>
+</ul>
+<p>The following operations are supported on group navigation properties: </p>
+<ul>
+<li>Read (GET): Supported for all groups.</li>
+<li>Update (POST): Supported only for security groups and mail-enabled security groups. (members and owners only.)</li>
+<li>Delete (DELETE): Supported only for security groups. (members and owners only.)</li>
+</ul>
+<p>The following actions and functions may be called on groups:</p>
+<ul>
+<li>[checkMemberGroups] to check a group’s membership in a list of groups. The check is transitive.</li>
+<li>[getAvailableExtensionProperties] to return a list of the extension properties that have been registered for a group. Requires version 1.5 or newer.</li>
+<li>[getMemberGroups] to return a list of the groups that a group is a member of. The check is transitive.</li>
+<li>[isMemberOf] to check whether a group is a member of a specified group. The check is transitive.</li>
+</ul>
+<h4 id="remarks">Remarks</h4>
+<ul>
+<li>There are three kinds of groups: mail distribution groups (<strong>mailEnabled</strong> property <strong>true</strong> and <strong>securityEnabled</strong> property <strong>false</strong>); mail-enabled security groups (<strong>mailEnabled</strong> property <strong>true</strong> and <strong>securityEnabled</strong> property <strong>true</strong>); and, (pure) security groups (<strong>mailEnabled</strong> property <strong>false</strong> and <strong>securityEnabled</strong> property <strong>true</strong>).</li>
+<li>You can only create security groups using the Graph API (you cannot create mail-enabled security groups or mail distribution groups). For this reason the <strong>mailEnabled</strong> property must be set <strong>false</strong> and the <strong>securityEnabled</strong> property must be set <strong>true</strong> when creating a group.</li>
+<li>All properties marked required must be specified when creating a security group using the Graph API. These properties are: <strong>displayName</strong>, <strong>mailNickname</strong>, <strong>mailEnabled</strong> (<strong>false</strong>), <strong>securityEnabled</strong> (<strong>true</strong>).</li>
+<li>You cannot update a group from a security group to a mail-enabled security group or to a mail distribution group using the Graph API.</li>
+</ul>
+<hr>
+<h3 id="oauth2permissiongrant-entity-a-id-oauth2permissiongrantentity-a-">OAuth2PermissionGrant Entity <a id="OAuth2PermissionGrantEntity"> </a></h3>
+<p>Represents the OAuth 2.0 delegated permission scopes that have been granted to an application (represented by a service principal) as part of the user or admin consent process. </p>
+<p><strong>Important</strong>: Beginning with version 1.5, the <strong>Permission</strong> entity type is renamed to <strong>OAuth2PermissionGrant</strong>. In versions prior to 1.5, permissions created during consent were added to the <strong>permissions</strong> property of a user or service principal.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Create (POST)</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Update (PATCH)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">clientId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Specifies the <strong>objectId</strong> of the service principal granted consent to impersonate the user when accessing the resource (represented by the <strong>resourceId</strong>).</td>
+</tr>
+<tr>
+<td style="text-align:left">consentType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Specifies whether consent was provided by the administrator on behalf of the organization or whether consent was provided by an individual. The possible values are &quot;AllPrincipals&quot; or &quot;Principal&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">expiryTime</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Reserved. Returns <strong>null</strong>. Do not use.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The unique identifier for the permission scope.<br><br> <strong>Notes</strong>: <strong>key</strong>, not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">principalId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">If <strong>consentType</strong> is &quot;AllPrincipals&quot; this value is null, and the consent applies to all users in the organization. If <strong>consentType</strong> is &quot;Principal&quot; then this property specifies the <strong>objectId</strong> of the user that granted consent, and applies only for that user.</td>
+</tr>
+<tr>
+<td style="text-align:left">resourceId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Specifies the <strong>objectId</strong> of the resource service principal to which access has been granted.</td>
+</tr>
+<tr>
+<td style="text-align:left">scope</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Specifies the value of the scope claim that the resource application should expect in the OAuth 2.0 access token.</td>
+</tr>
+<tr>
+<td style="text-align:left">startTime</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Reserved. Returns <strong>null</strong>. Do not use.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong><br>None.</p>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<h4 id="supported-operations">Supported Operations</h4>
+<p>The following operations are supported on permission scopes (the HTTP method used for each is in parentheses): </p>
+<ul>
+<li>Create (POST)</li>
+<li>Read (GET)</li>
+<li>Update (PATCH): <strong>scope</strong> property only.</li>
+<li>Delete (DELETE)</li>
+</ul>
+<p>No functions or actions may be called on permission scopes.</p>
+<h4 id="remarks">Remarks</h4>
+<ul>
+<li>In version 1.5 and newer, the <strong>oauth2PermissionGrants</strong> navigation property of the <strong>User</strong> entity and of the <strong>ServicePrincipal</strong> entity returns the <strong>OAuth2PermissionGrant</strong> objects associated with the user or service principal.</li>
+<li>Prior to version 1.5, the <strong>permissions</strong> navigation property of the <strong>User</strong> entity and of the <strong>ServicePrincipal</strong> entity returns the <strong>Permission</strong> objects associated with the user or service principal.</li>
+</ul>
+<hr>
+<h3 id="serviceprincipal-entity-a-id-serviceprincipalentity-a-">ServicePrincipal Entity <a id="ServicePrincipalEntity"> </a></h3>
+<p>Represents an instance of an application in a directory. Inherits from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Create (POST)</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Update (PATCH)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">accountEnabled</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"><strong>true</strong> if the service principal account is enabled; otherwise, <strong>false</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left">appDisplayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The display name exposed by the associated application.</td>
+</tr>
+<tr>
+<td style="text-align:left">appId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The unique identifier for the associated application (its <strong>appId</strong> property).</td>
+</tr>
+<tr>
+<td style="text-align:left">appOwnerTenantId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">appRoleAssignmentRequired</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Specifies whether an <strong>AppRoleAssignment</strong> to a user or group is required before Azure AD will issue a user or access token to the application.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer, not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">appRoles</td>
+<td style="text-align:left">Collection(<a href="#AppRoleType">AppRole</a>)</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">The application roles exposed by the associated application. For more information see the <strong>appRoles</strong> property definition on the <a href="#ApplicationEntity">Application</a> entity<br><br> <strong>Notes</strong>: Requires version 1.5 or newer, not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">authenticationPolicy</td>
+<td style="text-align:left"><a href="#ServicePrincipalAuthenticationPolicyType">ServicePrincipalAuthenticationPolicy</a></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Reserved for internal use only. Do not use. Removed in version 1.5.<br><br> <strong>Notes</strong>: Available in version 2013-11-08 only.</td>
+</tr>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">This property is not valid for service principals and always returns <strong>null</strong>. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">displayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The display name for the service principal.</td>
+</tr>
+<tr>
+<td style="text-align:left">errorUrl</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">homepage</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The URL to the homepage of the associated application.</td>
+</tr>
+<tr>
+<td style="text-align:left">keyCredentials</td>
+<td style="text-align:left">Collection(<a href="#KeyCredentialType">KeyCredential</a>)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The collection of key credentials associated with the service principal.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">logoutUrl</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">oauth2Permissions</td>
+<td style="text-align:left">Collection(<a href="#OAuth2PermissionType">OAuth2Permission</a>)</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The OAuth 2.0 permissions exposed by the associated application. For more information see the <strong>oauth2Permissions</strong> property definition on the <a href="#ApplicationEntity">Application</a> entity.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer, not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The unique identifier for the service principal. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: <strong>key</strong>, immutable, not nullable, unique.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A string that identifies the object type. For service principals the value is always &quot;ServicePrincipal&quot;. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</td>
+</tr>
+<tr>
+<td style="text-align:left">passwordCredentials</td>
+<td style="text-align:left">Collection(<a href="#PasswordCredentialType">PasswordCredential</a>)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The collection of password credentials associated with the service principal.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">preferredTokenSigningKeyThumbprint</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Reserved for internal use only. Do not write or otherwise rely on this property. May be removed in future versions.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">publisherName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The display name of the tenant in which the associated application is specified.</td>
+</tr>
+<tr>
+<td style="text-align:left">replyUrls</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The URLs that user tokens are sent to for sign in with the associated application, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to for the associated application.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">samlMetadataUrl</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">servicePrincipalNames</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The URIs that identify the associated application. For more information see, <a href="https://msdn.microsoft.com/en-us/library/azure/dn132633.aspx">Application Objects and Service Principal Objects</a>.<br><br> <strong>Notes</strong>: not nullable, the <strong>any</strong> operator is required for filter expressions on multi-valued properties; for more information, see [Supported Queries, Filters, and Paging Options].</td>
+</tr>
+<tr>
+<td style="text-align:left">tags</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"><br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong>   </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">From Multiplicity</th>
+<th style="text-align:left">To</th>
+<th style="text-align:left">To Multiplicity</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">appRoleAssignedTo</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#AppRoleAssignmentEntity">AppRoleAssignment</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Principals (users, groups, and service principals) that are assigned to this service principal. Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">appRoleAssignments</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#AppRoleAssignmentEntity">AppRoleAssignment</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Applications that the service principal is assigned to. Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">createdObjects</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Directory objects created by this service principal. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>. Requires version 2013-11-08 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">memberOf</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a><br><br> (Only <a href="#DirectoryRoleEntity">DirectoryRole</a> and <a href="#GroupEntity">Group</a> objects are supported)</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Roles and groups that this service principal is a direct member of. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> HTTP Methods: GET</td>
+</tr>
+<tr>
+<td style="text-align:left">oauth2PermissionGrants</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#OAuth2PermissionGrantEntity">OAuth2PermissionGrant</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">User impersonation grants associated with this service principal. Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">ownedObjects</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Directory objects that are owned by this service principal. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>. Requires version 2013-11-08 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">owners</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Directory objects that are owners of this service principal. The owners are a set of non-admin users who are allowed to modify this object. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>. Requires version 2013-11-08 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">permissions</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><strong>Permission</strong></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Renamed to <strong>oauth2PermissionGrants</strong> in version 1.5 and newer. In previous versions pointed to the permissions associated with the service principal. For information about the <strong>Permission</strong> entity type, see <a href="#OAuth2PermissionGrantEntity">OAuth2PermissionGrant</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<h4 id="supported-operations">Supported Operations</h4>
+<p>The following operations are supported on service principals (the HTTP method used for each is in parentheses): </p>
+<ul>
+<li>Create (POST)</li>
+<li>Read (GET)</li>
+<li>Update (PATCH)</li>
+<li>Delete (DELETE)</li>
+</ul>
+<p>The following operation is supported on navigation properties:</p>
+<ul>
+<li>Read (GET)</li>
+</ul>
+<p>The following actions and functions may be called on groups:</p>
+<ul>
+<li>[checkMemberGroups] to check a service principal’s membership in a list of groups. The check is transitive.</li>
+<li>[getMemberGroups] to return a list of the groups that a service principal is a member of. The check is transitive.</li>
+<li>[getMemberObjects] to return a list of the groups and directory roles that a service principal is a member of. The check is transitive.</li>
+</ul>
+<p>A principal must be in the Company Administrator role to perform operations on service principals. </p>
+<h4 id="remarks">Remarks</h4>
+<p>You must set the <strong>appId</strong> property to the ID of an application in the directory when you create a service principal.</p>
+<hr>
+<h3 id="subscribedsku-entity-a-id-subscribedskuentity-a-">SubscribedSku Entity <a id="SubscribedSkuEntity"> </a></h3>
+<p>Only the read operation is supported on subscribed SKUs; create, update, and delete are not supported. Query filter expressions are not supported. Inherits from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Read (GET)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">capabilityStatus</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">consumedUnits</td>
+<td style="text-align:left">Edm.Int32</td>
+<td style="text-align:left">Yes</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">Yes</td>
+<td>This property is not valid for subscribed SKUs and always returns <strong>null</strong>. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td><br><br> <strong>Notes</strong>: <strong>key</strong>, not nullable</td>
+</tr>
+<tr>
+<td style="text-align:left">prepaidUnits</td>
+<td style="text-align:left"><a href="#LicenseUnitsDetailType">LicenseUnitsDetail</a></td>
+<td style="text-align:left">Yes</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">servicePlans</td>
+<td style="text-align:left">Collection(<a href="#ServicePlanInfoType">ServicePlanInfo</a>)</td>
+<td style="text-align:left">Yes</td>
+<td><br><br> <strong>Notes</strong>: not nullable</td>
+</tr>
+<tr>
+<td style="text-align:left">skuId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left">Yes</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">skuPartNumber</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong><br>None.</p>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<h4 id="supported-operations">Supported Operations</h4>
+<p>The following operations are supported on subscribed SKUs (the HTTP method used for each is in parentheses):</p>
+<ul>
+<li>Read (GET)</li>
+</ul>
+<p>Subscribed SKUs do not expose any navigation properties. </p>
+<p>No functions or actions may be called on subscribed SKUs.</p>
+<hr>
+<h3 id="tenantdetail-entity-a-id-tenantdetailentity-a-">TenantDetail Entity <a id="TenantDetailEntity"> </a></h3>
+<p>Represents an Azure Active Directory tenant. Only the read and update operations are supported on tenants; create and delete are not supported. Inherits from [DirectoryOjbect].</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Update (PATCH)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">assignedPlans</td>
+<td style="text-align:left">Collection(<a href="#AssignedPlanType">AssignedPlan</a>)</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The collection of service plans associated with the tenant.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">city</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">companyLastDirSyncTime</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The time and date at which the tenant was last synced with the on-premise directory.</td>
+</tr>
+<tr>
+<td style="text-align:left">country</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">countryLetterCode</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">This property is not valid for tenants and always returns <strong>null</strong>. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">dirSyncEnabled</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"><strong>true</strong> if this object is synced from an on-premises directory; <strong>false</strong> if this object was originally synced from an on-premises directory but is no longer synced; <strong>null</strong> if this object has never been synced from an on-premises directory (default).</td>
+</tr>
+<tr>
+<td style="text-align:left">displayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The display name for the tenant.</td>
+</tr>
+<tr>
+<td style="text-align:left">marketingNotificationEmails</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left"><br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The unique identifier for the tenant. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: <strong>key</strong>, immutable, not nullable, unique.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A string that identifies the object type. For tenants the value is always &quot;Company&quot;. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</td>
+</tr>
+<tr>
+<td style="text-align:left">postalCode</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">preferredLanguage</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">provisionedPlans</td>
+<td style="text-align:left">Collection(<a href="#ProvisionedPlanType">ProvisionedPlan</a>)</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"><br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">provisioningErrors</td>
+<td style="text-align:left">Collection(<a href="#ProvisioningErrorType">ProvisioningError</a>)</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"><br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">street</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">technicalNotificationMails</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left"><br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">telephoneNumber</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">tenantType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"><br><br> <strong>Notes</strong>: removed in version 1.5 and newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">verifiedDomains</td>
+<td style="text-align:left">Collection(<a href="#VerifiedDomainType">VerifiedDomain</a>)</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The collection of domains associated with this tenant.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong><br>None.</p>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<h4 id="supported-operations">Supported Operations</h4>
+<p>The following operations are supported on tenants (the HTTP method used for each is in parentheses): </p>
+<ul>
+<li>Read (GET)</li>
+<li>Update (PATCH); only the <strong>marketingNotificationMails</strong> and <strong>technicalNotificationMails</strong> properties can be updated using the Graph API.</li>
+</ul>
+<p>Tenants do not expose any navigation properties. </p>
+<p>No functions or actions may be called on tenants.</p>
+<h4 id="remarks">Remarks</h4>
+<ul>
+<li>You cannot create or delete tenants using the Graph API.</li>
+<li>Only the <strong>marketingNotificationMails</strong> and <strong>technicalNotificationMails</strong> properties can be updated using the Graph API.</li>
+<li>Query filter expressions are not supported on tenants.</li>
+</ul>
+<hr>
+<h3 id="user-entity-a-id-userentity-a-">User Entity <a id="UserEntity"> </a></h3>
+<p>Represents an Azure AD user account. Inherits from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</p>
+<h4 id="properties">Properties</h4>
+<p><strong>Declared Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Create (POST)</th>
+<th style="text-align:left">Read (GET)</th>
+<th style="text-align:left">Update (PATCH)</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">accountEnabled</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"><strong>true</strong> if the account is enabled; otherwise, <strong>false</strong>. This property is required when a user is created.</td>
+</tr>
+<tr>
+<td style="text-align:left">assignedLicenses</td>
+<td style="text-align:left">Collection(<a href="#AssignedLicenseType">AssignedLicense</a>)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The licenses that are assigned to the user.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">assignedPlans</td>
+<td style="text-align:left">Collection(<a href="#AssignedPlanType">AssignedPlan</a>)</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The plans that are assigned to the user.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">city</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The city in which the user is located.</td>
+</tr>
+<tr>
+<td style="text-align:left">country</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The country/region in which the user is located; for example, &quot;US&quot; or &quot;UK&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">deletionTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">This property is not valid for users and always returns <strong>null</strong>. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">department</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The name for the department in which the user works.</td>
+</tr>
+<tr>
+<td style="text-align:left">dirSyncEnabled</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left"><strong>true</strong> if this object is synced from an on-premises directory; <strong>false</strong> if this object was originally synced from an on-premises directory but is no longer synced; <strong>null</strong> if this object has never been synced from an on-premises directory (default).</td>
+</tr>
+<tr>
+<td style="text-align:left">displayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes, but cannot be cleared</td>
+<td style="text-align:left">The name displayed in the address book for the user. This is usually the combination of the user&#39;s first name, middle initial and last name. This property is required when a user is created and it cannot be cleared during updates.</td>
+</tr>
+<tr>
+<td style="text-align:left">facsimileTelephoneNumber</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The telephone number of the user&#39;s business fax machine.</td>
+</tr>
+<tr>
+<td style="text-align:left">givenName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The given name (first name) of the user.</td>
+</tr>
+<tr>
+<td style="text-align:left">immutableId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Required if using a federated domain for the UPN</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">This property is used to associate an on-premises Active Directory user account to their Azure AD user object. This property must be specified when creating a new user account in the Graph if you are using a federated domain for the user&#39;s <strong>userPrincipalName</strong> (UPN) property.<br><br> <strong>Important:</strong> The <strong>$</strong> and <strong>_</strong> characters cannot be used when specifying this property. <br><br> <strong>Notes</strong>: Requires version 2013-11-08 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">jobTitle</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The user&#39;s job title.</td>
+</tr>
+<tr>
+<td style="text-align:left">lastDirSyncTime</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Indicates the last time at which the object was synced with the on-premises directory; for example: &quot;2013-02-16T03:04:54Z&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left">mail</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The SMTP address for the user, for example, &quot;jeff@contoso.onmicrosoft.com&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">mailNickname</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The mail alias for the user. This property must be specified when a user is created.</td>
+</tr>
+<tr>
+<td style="text-align:left">mobile</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The primary cellular telephone number for the user.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The unique identifier for the user. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> <strong>Notes</strong>: <strong>key</strong>, immutable, not nullable, unique.</td>
+</tr>
+<tr>
+<td style="text-align:left">objectType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A string that identifies the object type. For users the value is always &quot;User&quot;. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.</td>
+</tr>
+<tr>
+<td style="text-align:left">onPremisesSecurityIdentifier</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Contains the on-premises security identifier (SID) for the user that was synchronized from on-premises to the cloud.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">otherMails</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">A list of additional email addresses for the user; for example: [&quot;bob@contoso.com&quot;, &quot;Robert@fabrikam.com&quot;].<br><br> <strong>Notes</strong>: not nullable, the <strong>any</strong> operator is required for filter expressions on multi-valued properties; for more information, see [Supported Queries, Filters, and Paging Options].</td>
+</tr>
+<tr>
+<td style="text-align:left">passwordPolicies</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Specifies password policies for the user. This value is an enumeration with one possible value being &quot;DisableStrongPassword&quot;, which allows weaker passwords than the default policy to be specified. &quot;DisablePasswordExpiration&quot; can also be specified. The two may be specified together; for example: &quot;DisablePasswordExpiration, DisableStrongPassword&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">passwordProfile</td>
+<td style="text-align:left"><a href="#PasswordProfileType">PasswordProfile</a></td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Specifies the password profile for the user. The profile contains the user&#39;s password. This property is required when a user is created.<br><br> The password in the profile must satisfy minimum requirements as specified by the <strong>passwordPolicies</strong> property. By default, a strong password is required. For information about the constraints that must be satisfied for a strong password, see <strong>Password policy</strong> under <a href="http://onlinehelp.microsoft.com/office365-enterprises/ff637578.aspx">Change your password</a> in the Microsoft Office 365 help pages.</td>
+</tr>
+<tr>
+<td style="text-align:left">physicalDeliveryOfficeName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The office location in the user&#39;s place of business.</td>
+</tr>
+<tr>
+<td style="text-align:left">postalCode</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The postal code for the user&#39;s postal address. The postal code is specific to the user&#39;s country/region. In the United States of America, this attribute contains the ZIP code.</td>
+</tr>
+<tr>
+<td style="text-align:left">preferredLanguage</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The preferred language for the user. Should follow ISO 639-1 Code; for example &quot;en-US&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">provisionedPlans</td>
+<td style="text-align:left">Collection(<a href="#ProvisionedPlanType">ProvisionedPlan</a>)</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The plans that are provisioned for the user.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">provisioningErrors</td>
+<td style="text-align:left">Collection(<a href="#ProvisioningErrorType">ProvisioningError</a>)</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A collection of error details that are preventing this user from being provisioned successfully.</td>
+</tr>
+<tr>
+<td style="text-align:left">proxyAddresses</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Fpr example: [&quot;SMTP: bob@contoso.com&quot;, &quot;smtp: bob@sales.contoso.com&quot;]<br><br> <strong>Notes</strong>: unique, not nullable, the <strong>any</strong> operator is required for filter expressions on multi-valued properties; for more information, see [Supported Queries, Filters, and Paging Options].</td>
+</tr>
+<tr>
+<td style="text-align:left">sipProxyAddress</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Specifies the voice over IP (VOIP) session initiation protocol (SIP) address for the user.<br><br> <strong>Notes</strong>: Requires version 1.5 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The state or province in the user&#39;s address.</td>
+</tr>
+<tr>
+<td style="text-align:left">streetAddress</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The street address of the user&#39;s place of business.</td>
+</tr>
+<tr>
+<td style="text-align:left">surname</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The user&#39;s surname (family name or last name).<br><br> <strong>Notes</strong>: filterable.</td>
+</tr>
+<tr>
+<td style="text-align:left">telephoneNumber</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The primary telephone number of the user&#39;s place of business.</td>
+</tr>
+<tr>
+<td style="text-align:left">thumbnailPhoto</td>
+<td style="text-align:left">Edm.Stream</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">A thumbnail photo to be displayed for the user.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">usageLocation</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">A two letter country code (ISO standard 3166). Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. Examples include: &quot;US&quot;, &quot;JP&quot;, and &quot;GB&quot;.<br><br> <strong>Notes</strong>: not nullable.</td>
+</tr>
+<tr>
+<td style="text-align:left">userPrincipalName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Required</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user&#39;s email name. The general format is &quot;alias@domain&quot;, where domain must be present in the tenant&#39;s collection of verified domains. This property is required when a user is created. <br><br> The verified domains for the tenant can be accessed from the <strong>VerifiedDomains</strong> property of <a href="#TenantDetailEntity">TenantDetail</a>. <br><br> <strong>Notes</strong>: <strong>key</strong>, unique.</td>
+</tr>
+<tr>
+<td style="text-align:left">userType</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left">Optional</td>
+<td style="text-align:left">Filterable</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">A string value that can be used to classify user types in your directory, such as &quot;Member&quot; and &quot;Guest&quot;.<br><br> <strong>Notes</strong>: Requires version 2013-11-08 or newer.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Navigation Properties</strong>   </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">From Multiplicity</th>
+<th style="text-align:left">To</th>
+<th style="text-align:left">To Multiplicity</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">manager</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a><br><br> (Only User and <a href="#ContactEntity">Contact</a> objects are supported.)</td>
+<td style="text-align:left">0..1</td>
+<td style="text-align:left">The user or contact that is this user&#39;s manager. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> HTTP Methods: GET, PUT, DELETE</td>
+</tr>
+<tr>
+<td style="text-align:left">directReports</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a><br><br> (Only User and <a href="#ContactEntity">Contact</a> objects are supported.)</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">The users and contacts that report to the user. (The users and contacts that have their manager property set to this user.) Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> HTTP Methods: GET</td>
+</tr>
+<tr>
+<td style="text-align:left">memberOf</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a><br><br> (Only <a href="#GroupEntity">Group</a> and <a href="#DirectoryRoleEntity">DirectoryRole</a> objects are supported.)</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">The groups and directory roles that the user is a member of. Inherited from <a href="#DirectoryObjectEntity">DirectoryObject</a>.<br><br> HTTP Methods: GET</td>
+</tr>
+<tr>
+<td style="text-align:left">ownedDevices</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DeviceEntity">Device</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Devices that are owned by the user.</td>
+</tr>
+<tr>
+<td style="text-align:left">permissions</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><strong>Permission</strong></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">The permissions associated with the user. The property is renamed to <strong>oauth2PermissionGrants</strong> and the <strong>Permission</strong> entity is renamed to <a href="#OAuth2PermissionGrantEntity">OAuth2PermissionGrant</a> in version 1.5 and newer. See the documentation for <strong>OAuth2PermssionGrant</strong> for documentation of the <strong>Permission</strong> entity type.<br><br></td>
+</tr>
+<tr>
+<td style="text-align:left">registeredDevices</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DeviceEntity">Device</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Devices that are registered for the user.</td>
+</tr>
+<tr>
+<td style="text-align:left">createdObjects</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Directory objects that were created by the user. Requires version 2013-11-08 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">ownedObjects</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#DirectoryObjectEntity">DirectoryObject</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">Directory objects that are owned by the user. Requires version 2013-11-08 or newer.</td>
+</tr>
+<tr>
+<td style="text-align:left">appRoleAssignments</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#AppRoleAssignmentEntity">AppRoleAssignment</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">The set of applications that this user is assigned to. Requires version 1.5 or newer.<br><br> HTTP Methods: GET, POST, DELETE</td>
+</tr>
+<tr>
+<td style="text-align:left">oauth2PermissionGrants</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left"><a href="#OAuth2PermissionGrantEntity">OAuth2PermissionGrant</a></td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">The set of applications that are granted consent to impersonate this user. Requires version 1.5 or newer.<br><br> HTTP Methods: GET, POST, DELETE</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Inherited navigation properties that are not listed are not supported. Requests addressed to unsupported navigation properties return <strong>400 Bad Request</strong>. </p>
+<h4 id="supported-operations">Supported Operations</h4>
+<p>The following operations are supported on users (the HTTP method used for each is in parentheses): </p>
+<ul>
+<li>Create (POST)</li>
+<li>Read (GET)</li>
+<li>Update (PATCH)</li>
+<li>Delete (DELETE)</li>
+</ul>
+<p>The following operations are supported on user navigation properties; not all operations are supported on every navigation property.</p>
+<ul>
+<li>Read (GET)</li>
+<li>Update (PUT)</li>
+<li>Delete (DELETE)</li>
+</ul>
+<p>The following actions and functions may be called on users:</p>
+<ul>
+<li>[assignLicense] to assign and/or remove a specified list of licenses from a user. Requires version 2013-11-08 or newer.</li>
+<li>[checkMemberGroups] to check the user’s membership in a list of groups. The check is transitive.</li>
+<li>[getAvailableExtensionProperties] to return a list of the extension properties that have been registered for a user. Requires version 1.5 or newer.</li>
+<li>[getMemberGroups] to return a list of the groups that a user is a member of. The check is transitive.</li>
+<li>[getMemberObjects] to return a list of the groups and directory roles that a user is a member of. The check is transitive.</li>
+<li>[isMemberOf] to check whether a user is a member of a specified group. The check is transitive.</li>
+</ul>
+<h4 id="remarks">Remarks</h4>
+<ul>
+<li>At a minimum, you must specify the following properties when creating a user: <strong>accountEnabled</strong>, <strong>displayName</strong>, <strong>mailNickname</strong>, <strong>passwordProfile</strong>, and <strong>userPrincipalName</strong>. The password specified in the <strong>passwordProfile</strong> property must meet the tenant’s password complexity requirements. For more information, see the <strong>passwordPolicies</strong> property.</li>
+<li>In version 2013-11-08 and newer, the <strong>immutableId</strong> property must be specified when creating a new user account in the Graph if you are using a federated domain for the user’s <strong>userPrincipalName</strong> (UPN) property.</li>
+<li>The <strong>displayName</strong> property cannot be cleared on updates.</li>
+<li>The <strong>passwordProfile</strong> property always returns <strong>null</strong>. This is to prevent the user’s password from being displayed. You can reset the user’s password by updating the <strong>passwordProfile</strong> property.</li>
+<li>In addition to the standard addressing available for all directory entities, users may be addressed by using the <strong>userPrincipalName</strong> property; for example, <code>https://graph.windows.net/contoso.onmicrosoft.com/users/john@contoso.onmicrosoft.com?api-version=1.5</code>.</li>
+</ul>
+<hr>
+<h2 id="complex-type-reference">Complex type reference</h2>
+<h3 id="alternativesecurityid-type-a-id-alternativesecurityidtype-a-">AlternativeSecurityId Type <a id="AlternativeSecurityIdType"> </a></h3>
+<p>Contains an alternative security ID associated with a device. The <strong>alternativeSecurityIds</strong> property of the <a href="#DeviceEntity">Device</a> entity is a collection of <strong>AlternativeSecurityId</strong>.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">identityProvider</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">key</td>
+<td style="text-align:left">Edm.Binary</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">Edm.Int32</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="approle-type-a-id-approletype-a-">AppRole Type <a id="AppRoleType"> </a></h3>
+<p>Represents an application role that may be requested by a client application calling another application or that may be used to assign an application to users or groups in a specified application role. The <strong>appRoles</strong> property of the <a href="#ServicePrincipalEntity">ServicePrincipal</a> entity and of the <a href="#ApplicationEntity">Application</a> entity is a collection of <strong>AppRole</strong>.</p>
+<p><strong>Important</strong>: Requires version 1.5 or newer.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">allowedMemberTypes</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">Not nullable</td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">Specifies whether this app role definition can be assigned to users and groups by setting to &quot;User&quot;, or to other applications (that are accessing this application in daemon service scenarios) by setting to &quot;Application&quot;, or to both.</td>
+</tr>
+<tr>
+<td style="text-align:left">description</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">Permission help text that appears in the admin app assignment and consent experiences.</td>
+</tr>
+<tr>
+<td style="text-align:left">displayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">Display name for the permission that appears in the admin consent and app assignment experiences.</td>
+</tr>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">Unique role identifier inside the <strong>appRoles</strong> collection.</td>
+</tr>
+<tr>
+<td style="text-align:left">isEnabled</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">When creating or updating a role definition, this must be set to <strong>true</strong> (which is the default). To delete a role, this must first be set to <strong>false</strong>. At that point, in a subsequent call, this role may be removed.</td>
+</tr>
+<tr>
+<td style="text-align:left">value</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">Specifies the value of the roles claim that the application should expect in the authentication and access tokens.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="assignedlicense-type-a-id-assignedlicensetype-a-">AssignedLicense Type <a id="AssignedLicenseType"> </a></h3>
+<p>Represents a license assigned to a user. The <strong>assignedLicenses</strong> property of the <a href="#UserEntity">User</a> entity is a collection of <strong>AssignedLicense</strong>.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">disabledPlans</td>
+<td style="text-align:left">Collection(Edm.Guid)</td>
+<td style="text-align:left">Not nullable</td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">A collection of the unique identifiers for plans that have been disabled.</td>
+</tr>
+<tr>
+<td style="text-align:left">skuId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">The unique identifier for the SKU.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="assignedplan-type-a-id-assignedplantype-a-">AssignedPlan Type <a id="AssignedPlanType"> </a></h3>
+<p>The <strong>assignedPlans</strong> property of both the <a href="#UserEntity">User</a> entity and the <a href="#TenantDetailEntity">TenantDetail</a> entity is a collection of <strong>AssignedPlan</strong>.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">assignedTimestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">The date and time at which the plan was assigned; for example: 2013-01-02T19:32:30Z.</td>
+</tr>
+<tr>
+<td style="text-align:left">capabilityStatus</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">For example, &quot;Enabled&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">service</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">The name of the service; for example, &quot;AccessControlServiceS2S&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">servicePlanId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">A GUID that identifies the service plan.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="keycredential-type-a-id-keycredentialtype-a-">KeyCredential Type <a id="KeyCredentialType"> </a></h3>
+<p>Contains a key credential associated with an application or a service principal. The <strong>keyCredentials</strong> property of the <a href="#ApplicationEntity">Application</a> and <a href="#ServicePrincipalEntity">ServicePrincipal</a> entities is a collection of <strong>KeyCredential</strong>.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">customKeyIdentifier</td>
+<td style="text-align:left">Edm.Binary</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">endDate</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">The date and time at which the credential expires.</td>
+</tr>
+<tr>
+<td style="text-align:left">keyId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">The unique identifier (GUID) for the key.</td>
+</tr>
+<tr>
+<td style="text-align:left">startDate</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">The date and time at which the credential becomes valid.</td>
+</tr>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">The type of key credential; for example, &quot;Symmetric&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">usage</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">A string that describes the purpose for which the key can be used; for example, &quot;Verify&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">value</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="licenseunitsdetail-type-a-id-licenseunitsdetailtype-a-">LicenseUnitsDetail Type <a id="LicenseUnitsDetailType"> </a></h3>
+<p>The <strong>prepaidUnits</strong> property of the <a href="#SubscribedSkuEntity">SubscribedSku</a> entity is of type <strong>LicenseUnitsDetail</strong>.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">enabled</td>
+<td style="text-align:left">Edm.Int32</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">suspended</td>
+<td style="text-align:left">Edm.Int32</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">warning</td>
+<td style="text-align:left">Edm.Int32</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="oauth2permission-type-a-id-oauth2permissiontype-a-">OAuth2Permission Type <a id="OAuth2PermissionType"> </a></h3>
+<p>Represents an OAuth 2.0 delegated permission scope. The specified OAuth 2.0 delegated permission scopes may be requested by client applications (through the <strong>requiredResourceAccess</strong> collection on the <a href="#ApplicationEntity">Application</a> object) when calling a resource application. The <strong>oauth2Permissions</strong> property of the <a href="#ServicePrincipalEntity">ServicePrincipal</a> entity and of the <a href="#ApplicationEntity">Application</a> entity is a collection of <strong>OAuth2Permission</strong>.</p>
+<p><strong>Important</strong>: Requires version 1.5 or newer.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">adminConsentDescription</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">Permission help text that appears in the admin consent and app assignment experiences.</td>
+</tr>
+<tr>
+<td style="text-align:left">adminConsentDisplayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">Display name for the permission that appears in the admin consent and app assignment experiences.</td>
+</tr>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">Edm. Guid</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">Unique scope permission identifier inside the oauth2Permissions collection.</td>
+</tr>
+<tr>
+<td style="text-align:left">isEnabled</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left">Not nullable</td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">When creating or updating a permission, this property must be set to <strong>true</strong> (which is the default). To delete a permission, this property must first be set to <strong>false</strong>. At that point, in a subsequent call, the permission may be removed.</td>
+</tr>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">Specifies whether this scope permission can be consented to by an end user, or whether it is a tenant-wide permission that must be consented to by a Company Administrator. Possible values are &quot;User&quot; or &quot;Admin&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">userConsentDescription</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">Permission help text that appears in the end user consent experience.</td>
+</tr>
+<tr>
+<td style="text-align:left">userConsentDisplayName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">Display name for the permission that appears in the end user consent experience.</td>
+</tr>
+<tr>
+<td style="text-align:left">value</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">The value of the scope claim that the resource application should expect in the OAuth 2.0 access token.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="passwordcredential-type-a-id-passwordcredentialtype-a-">PasswordCredential Type <a id="PasswordCredentialType"> </a></h3>
+<p>Contains a password credential associated with an application or a service principal. The <strong>passwordCredentials</strong> property of the <a href="#ServicePrincipalEntity">ServicePrincipal</a> entity and of the <a href="#ApplicationEntity">Application</a> entity is a collection of <strong>PasswordCredential</strong>.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">customKeyIdentifier</td>
+<td style="text-align:left">Edm.Binary</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">endDate</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">The date and time at which the password expires.</td>
+</tr>
+<tr>
+<td style="text-align:left">keyId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">startDate</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">The date and time at which the password becomes valid.</td>
+</tr>
+<tr>
+<td style="text-align:left">value</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="passwordprofile-type-a-id-passwordprofiletype-a-">PasswordProfile Type <a id="PasswordProfileType"> </a></h3>
+<p>Contains the password profile associated with a user. The <strong>passwordProfile</strong> property of the <a href="#UserEntity">User</a> entity is a <strong>PasswordProfile</strong> object.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">password</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">The password for the user. This property is required when a user is created. It can be updated, but the user will be required to change the password on the next login. <br><br> The password must satisfy minimum requirements as specified by the user&#39;s <strong>PasswordPolicies</strong> property. By default, a strong password is required.</td>
+</tr>
+<tr>
+<td style="text-align:left">forceChangePasswordNextLogin</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left"><strong>true</strong> if the user must change her password on the next login; otherwise <strong>false</strong>.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="provisionedplan-type-a-id-provisionedplantype-a-">ProvisionedPlan Type <a id="ProvisionedPlanType"> </a></h3>
+<p>The <strong>provisionedPlans</strong> property of the <a href="#UserEntity">User</a> entity and the <a href="#TenantDetailEntity">TenantDetail</a> entity is a collection of <strong>ProvisionedPlan</strong>.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">capabilityStatus</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">For example, &quot;Enabled&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">provisioningStatus</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">For example, &quot;Success&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">service</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">The name of the service; for example, &quot;AccessControlS2S&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="provisioningerror-type-a-id-provisioningerrortype-a-">ProvisioningError Type <a id="ProvisioningErrorType"> </a></h3>
+<p>The <strong>provisioningErrors</strong> property of the <a href="#ContactEntity">Contact</a>, <a href="#UserEntity">User</a>, and <a href="#GroupEntity">Group</a> entities is a collection of <strong>ProvisioningError</strong>.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">errorDetail</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">A description of the error.</td>
+</tr>
+<tr>
+<td style="text-align:left">resolved</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left"><strong>true</strong> if the error was resolved; otherwise, <strong>false</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left">serviceInstance</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">The service instance for which the error occurred.</td>
+</tr>
+<tr>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:left">Edm.DateTime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">The date and time at which the error occurred.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="requiredresourceaccess-type-a-id-requiredresourceaccesstype-a-">RequiredResourceAccess Type <a id="RequiredResourceAccessType"> </a></h3>
+<p>Specifies the set of OAuth 2.0 permission scopes and app roles under the specified resource that an application requires access to. The specified OAuth 2.0 permission scopes may be requested by client applications (through the <strong>requiredResourceAccess</strong> collection) when calling a resource application. The <strong>requiredResourceAccess</strong> property of the <a href="#ApplicationEntity">Application</a> entity is a collection of <strong>ReqiredResourceAccess</strong>.</p>
+<p><strong>Important</strong>: Requires version 1.5 or newer.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">resourceAppId</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">The unique identifier for the resource that the application requires access to. This should be equal to the <strong>appId</strong> declared on the target resource application.</td>
+</tr>
+<tr>
+<td style="text-align:left">resourceAccess</td>
+<td style="text-align:left">Collection(<a href="#ResourceAccessType">ResourceAccess</a>)</td>
+<td style="text-align:left">Not nullable</td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="resourceaccess-type-a-id-resourceaccesstype-a-">ResourceAccess Type <a id="ResourceAccessType"> </a></h3>
+<p>Specifies an OAuth 2.0 permission scope or an app role that an application requires. The <strong>resourceAccess</strong> property of the <a href="#RequiredResourceAccessType">RequiredResourceAccess</a> type is a collection of <strong>ResourceAccess</strong>.</p>
+<p><strong>Important</strong>: Requires version 1.5 or newer.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left">Not nullable</td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">The unique identifier for one of the <a href="#OAuth2PermissionType">OAuth2Permission</a> or <a href="#AppRoleType">AppRole</a> instances that the resource application exposes.</td>
+</tr>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RW</td>
+<td style="text-align:left">Specifies whether the <strong>id</strong> property references an <a href="#OAuth2PermissionType">OAuth2Permission</a> or an <a href="#AppRoleType">AppRole</a>. Possible values are &quot;scope&quot; or &quot;role&quot;.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="serviceplaninfo-type-a-id-serviceplaninfotype-a-">ServicePlanInfo Type <a id="ServicePlanInfoType"> </a></h3>
+<p>Contains information about a service plan associated with a subscribed SKU. The <strong>servicePlans</strong> property of the <a href="#SubscribedSkuEntity">SubscribedSku</a> entity is a collection of <strong>ServicePlanInfo</strong>.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">servicePlanId</td>
+<td style="text-align:left">Edm.Guid</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">The unique identifier of the service plan.</td>
+</tr>
+<tr>
+<td style="text-align:left">servicePlanName</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">The name of the service plan.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="serviceprincipalauthenticationpolicy-type-a-id-serviceprincipalauthenticationpolicytype-a-">ServicePrincipalAuthenticationPolicy Type <a id="ServicePrincipalAuthenticationPolicyType"> </a></h3>
+<p>Contains the authentication policy of a service principal.</p>
+<p><strong>Important</strong>: Available only in version 2013-11-08; however it is reserved for internal use only and is removed in version 1.5 and newer.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">defaultPolicy</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R/W</td>
+<td style="text-align:left">Reserved for internal use only. Do not use. Removed in version 1.5.</td>
+</tr>
+<tr>
+<td style="text-align:left">allowedPolicies</td>
+<td style="text-align:left">Collection(Edm.String)</td>
+<td style="text-align:left">Not nullable</td>
+<td style="text-align:left">R/W</td>
+<td style="text-align:left">Reserved for internal use only. Do not use. Removed in version 1.5.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="verifieddomain-type-a-id-verifieddomaintype-a-">VerifiedDomain Type <a id="VerifiedDomainType"> </a></h3>
+<p>Specifies a domain for a tenant. The <strong>verifiedDomains</strong> property of the <a href="#TenantDetailEntity">TenantDetail</a> entity is a collection of <strong>VerifiedDomain</strong>.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Notes</th>
+<th style="text-align:left">Read/Write</th>
+<th style="text-align:left">In BPOS_API</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">capabilities</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">For example, &quot;Email&quot;, &quot;OfficeCommunicationsOnline&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">default</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"><strong>true</strong> if this is the default domain associated with the tenant; otherwise, <strong>false</strong>.</td>
+</tr>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">For example, &quot;00057FFE80187238&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">initial</td>
+<td style="text-align:left">Edm.Boolean</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">The domain name; for example, &quot;contoso.onmicrosoft.com&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">Edm.String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">R</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">For example, &quot;Managed&quot;.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li>Learn more about Graph API supported features, capabilities, and preview features in [Graph API concepts]</li>
+</ul>
+</div></div>
+      </div>
+    </div>
+
+    <div id="openFeedbackContainer" class="openfeedback-container"></div>
+    <div class="container">
+        <div id="comments-container"> </div>
+    </div>
+    
+    <footer id="footer" ms.pgarea="footer">
+  <div class="container">
+    <a href="https://www.microsoft.com/" class="logo"><img src="_themes/images/logo-ms.png" alt="Microsoft"></a>
+    <ul class="links" ms.cmpgrp="footer link">
+      <li><a href="https://msdn.microsoft.com/en-us/dn529288">Privacy Statement</a></li>
+      <li><a href="https://msdn.microsoft.com/en-us/cc300389">Terms of Use</a></li>
+      <li><a href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx">Trademarks</a></li>
+    </ul>
+  </div>
+</footer>
+
+    <script src="_themes/javascript/conceptual.js"></script>
+  </body>
+</html>

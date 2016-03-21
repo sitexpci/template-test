@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="ms.pagetype" content="restapi" />
+    <meta name="ms.sitename" content="DOCS" />
+    <meta name="title" content="Contacts" />
+<meta name="layout" content="Rest" />
+<meta name="langs" content="http" />
+<meta name="toc_asset_id" content="TOC.json" />
+<meta name="toc_rel" content="TOC.json" />
+<meta name="breadcrumb_path" content="/toc.html" />
+<meta name="content_git_url" content="https://mseng.visualstudio.com/DefaultCollection/VSChina/_git/Docs.Shared#path=/temp/site.src/restapi/contacts-operations.md" />
+
+    <title>Contacts</title>
+    <link rel="stylesheet" href="_themes/css/restapi.css">
+  </head>
+  <body>
+
+    <header id="header" ms.pgarea="header">
+  <div id="common-nav-placeholder">
+    <div class="container">
+      <a href="https://www.microsoft.com"><h3>Microsoft</h3></a>
+      <h5></h5>
+    </div>
+  </div>
+<div id="sub-header" class="container" ms.cmpgrp="breadcrumb">
+    <ul class="breadcrumbs"></ul>
+  </div>
+</header>
+
+    <div id="sidebar" ms.cmpgrp="intopic toc">
+        <nav class="navigation">
+        </nav>
+    </div>
+
+    <div id="main" ms.pgarea="body">
+        <article id="main-content">
+            
+
+<header class="header" id="overview">
+  <div class="conceptual primary"><h1 id="operations-on-contacts-graph-api-reference">Operations on contacts | Graph API reference</h1>
+<p> <em><strong>Applies to:</strong> Graph API | Azure Active Directory</em></p>
+<p><a id="Overview"> </a>
+This topic discusses how to perform operations on organizational contacts using the Azure Active Directory (AD) Graph API. Organizational contacts typically represent users who are external to your company or organization. They are different from O365 Outlook personal contacts. With the Azure AD Graph API, you can read organizational contacts and their relationships to other directory objects, such as their manager, direct reports, and group memberships. The ability to write organizational contacts is limited to those contacts that are not currently synced from an on-premises directory (the <strong>dirSyncEnabled</strong> property is  <strong>null</strong> or <strong>false</strong>). For such contacts, you can update or delete the contact itself or its manager property. You cannot create organizational contacts with the Graph API. For more information about organizational contacts, including how they are created in your tenant, see [Contact].</p>
+<p>The Graph API is a REST-based API that provides programmatic access to directory objects in Azure Active Directory, such as users, groups, organizational contacts, and applications.</p>
+<div class="IMPORTANT"><h5>IMPORTANT</h5><p>Azure AD Graph API functionality is also available through <a href="https://graph.microsoft.io/">Microsoft Graph</a>, a unified API that also includes APIs from other Microsoft services like Outlook, OneDrive, OneNote, Planner, and Office Graph, all accessed through a single endpoint with a single access token.</p>
+</div>
+<h2 id="performing-rest-operations-on-contacts">Performing REST operations on contacts</h2>
+<p>To perform operations on organizational contacts with the Graph API, you send HTTP requests with a supported method (GET, POST, PATCH, PUT, or DELETE) to an endpoint that targets the contacts resource collection, a specific contact, a navigation property of a contact, or a function or action that can be called on a contact.</p>
+<p>Graph API requests use the following basic URL:</p>
+<pre><code class="lang-no-highlight">https://graph.windows.net/{tenant_id}/{resource_path}?{api_version}[odata_query_parameters]
+</code></pre>
+<div class="IMPORTANT"><h5>IMPORTANT</h5><p>Requests sent to the Graph API must be well-formed, target a valid endpoint and version of the Graph API, and carry a valid access token obtained from Azure AD in their <code>Authorization</code> header. For more detailed information about creating requests and receiving responses with the Graph API, see [Operations Overview].</p>
+</div>
+<p>You specify the <code>{resource_path}</code> differently depending on whether you are targeting the collection of all contacts in your tenant, an individual contact, or a navigation property of a specific contact.</p>
+<ul>
+<li><code>/contacts</code> targets the contact resource collection. You can use this resource path to read all contacts or a filtered list of contacts in your tenant.</li>
+<li><code>/contacts/{object_id}</code> targets an individual contact in your tenant. You specify the target contact with its object ID (GUID). You can use this resource path to get the declared properties of a contact. For contacts that are not synced from an on-premises directory, you can use this resource path to modify the declared properties of a contact, or to delete a contact.</li>
+<li><code>/contacts/{object_id}/{nav_property}</code> targets the specified navigation property of a contact. You can use it to return the object or objects referenced by the target navigation property of the specified contact. <strong>Note</strong>: This form of addressing is only available for reads.</li>
+<li><code>/contacts/{object_id}/$links/{nav_property}</code> targets the specified navigation property of a contact. You can use this form of addressing to both read and modify a navigation property. On reads, the objects referenced by the property are returned as one or more links in the response body. Only the manager navigation property of contacts that are not synced from an on-premises directory can be modified. The manager is  specified as a link in the request body.</li>
+</ul>
+<p>For example, the following request returns a link to the specified contact&#39;s manager:</p>
+<pre><code class="lang-no-highlight">GET https://graph.windows.net/myorganization/contacts/a2fb3752-08b4-413d-af6f-1d99c4c131d9/$links/manager?api-version=1.6
+</code></pre>
+<h2 id="basic-operations-on-contacts-a-id-basiccontactoperations-a-">Basic operations on contacts <a id="BasicContactOperations"> </a></h2>
+<p>You can perform read operations on contacts by targeting either the contact resource collection or a specific contact. You can update and delete contacts that are not synced from an on-premises directory by targeting a specific contact. The Graph API does not support creating contacts. Nor does it support updating or deleting contacts that are synced from an on-premises directory (the <strong>dirSyncEnabled</strong> property is <strong>true</strong>). The following topics show you how to perform basic operations on contacts.</p>
+<hr>
+</div>
+</header>
+<header class="header" id="get contacts">
+  <div><h3 id="get-contacts-a-id-getcontacts-a-">Get contacts <a id="GetContacts"> </a></h3>
+<p>Gets a collection of contacts. You can add OData query parameters to the request to filter, sort, and page the response. For more information, see [Supported Queries, Filters, and Paging Options].</p>
+<p>On success, returns a collection of [Contact] objects; otherwise, the response body contains error details. For more information about errors, see [Error Codes and Error Handling].</p>
+<hr>
+</div>
+</header>
+<div class="level">
+  <section class="primary">
+    <h4>Request</h4>
+    <div>
+      <pre><code class="lang-http">get /contacts</code></pre>
+    </div>
+    <h4>Properties</h4>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>api-version</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The version of the Graph API to target. Beginning with version 1.5, the api-version string is represented in major.minor format. Prior releases were represented as date strings: '2013-11-08' and '2013-04-05'. Required.
+        </section>
+      </li>
+    </ul>
+    <h4>Returns</h4>
+    <h6>HTTP RESPONSE CODES</h6>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>200</code>
+          </li>
+        </ol>
+        <section class="description">
+          OK. Indicates success. The results are returned in the response body.
+        </section>
+      </li>
+    </ul>
+  </section>
+  <section class="secondary">
+    <div class="api-example" data-api-example-endpoint="https://apiexproxy.azurewebsites.net/svc" data-api-swagger-url="contacts_swagger2.json" data-api-operation-id="get contacts"></div>
+  </section>
+</div>
+<header class="header" id="get contact by id">
+  <div><h3 id="get-a-contact-a-id-getacontact-a-">Get a contact <a id="GetAContact"> </a></h3>
+<p>Gets a specified contact. You use the object ID (GUID) to identify the target contact.</p>
+<p>On success, returns the [Contact] object for the specified contact; otherwise, the response body contains error details. For more information about errors, see [Error Codes and Error Handling].</p>
+<hr>
+</div>
+</header>
+<div class="level">
+  <section class="primary">
+    <h4>Request</h4>
+    <div>
+      <pre><code class="lang-http">get /contacts/{object_id}</code></pre>
+    </div>
+    <h4>Properties</h4>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>object_id</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The object ID (GUID) of the target contact.
+        </section>
+      </li>
+      <li>
+        <ol class="meta">
+          <li>
+            <code>api-version</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          Specifies the version of the Graph API to target. Beginning with version 1.5, the api-version string is represented in major.minor format. Prior releases were represented as date strings: '2013-11-08' and '2013-04-05'. Required.
+        </section>
+      </li>
+    </ul>
+    <h4>Returns</h4>
+    <h6>HTTP RESPONSE CODES</h6>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>200</code>
+          </li>
+        </ol>
+        <section class="description">
+          OK. Indicates success. The contact is returned in the response body.
+        </section>
+      </li>
+    </ul>
+  </section>
+  <section class="secondary">
+    <div class="api-example" data-api-example-endpoint="https://apiexproxy.azurewebsites.net/svc" data-api-swagger-url="contacts_swagger2.json" data-api-operation-id="get contact by id"></div>
+  </section>
+</div>
+<header class="header" id="update contact">
+  <div><h3 id="update-a-contact-a-id-updatecontact-a-">Update a contact <a id="UpdateContact"> </a></h3>
+<p>Update a contact&#39;s properties. Specify any writable [Contact] property in the request body. Only the properties that you specify are changed. You can  update only contacts that are not synced from an on-premises directory (the <strong>dirSyncEnabled</strong> property is <strong>null</strong> or <strong>false</strong>).</p>
+<p>On success, no response body is returned; otherwise, the response body contains error details. For more information about errors, see [Error Codes and Error Handling].</p>
+<hr>
+</div>
+</header>
+<div class="level">
+  <section class="primary">
+    <h4>Request</h4>
+    <div>
+      <pre><code class="lang-http">patch /contacts/{object_id}</code></pre>
+    </div>
+    <h4>Properties</h4>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>object_id</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The object ID (GUID) of the target contact.
+        </section>
+      </li>
+      <li>
+        <ol class="meta">
+          <li>
+            <code>api-version</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The version of the Graph API to target. Beginning with version 1.5, the api-version string is represented in major.minor format. Prior releases were represented as date strings: '2013-11-08' and '2013-04-05'. Required.
+        </section>
+      </li>
+      <li>
+        <ol class="meta">
+          <li>
+            <code>bodyparam</code>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          this is request body, not real parameter
+        </section>
+      </li>
+    </ul>
+    <h4>Returns</h4>
+    <h6>HTTP RESPONSE CODES</h6>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>204</code>
+          </li>
+        </ol>
+        <section class="description">
+          No Content. Indicates success. No response body is returned.
+        </section>
+      </li>
+    </ul>
+  </section>
+  <section class="secondary">
+    <div class="api-example" data-api-example-endpoint="https://apiexproxy.azurewebsites.net/svc" data-api-swagger-url="contacts_swagger2.json" data-api-operation-id="update contact"></div>
+  </section>
+</div>
+<header class="header" id="delete contact">
+  <div><h3 id="delete-a-contact-a-id-deletecontact-a-">Delete a contact <a id="DeleteContact"> </a></h3>
+<p>Deletes a contact. You can delete only contacts that are not synced from an on-premises directory (the <strong>dirSyncEnabled</strong> property is <strong>null</strong> or  <strong>false</strong>).</p>
+<p>On success, no response body is returned; otherwise, the response body contains error details. For more information about errors, see [Error Codes and Error Handling].</p>
+<hr>
+<h2 id="operations-on-contact-navigation-properties-a-id-contactnavigationops-a-">Operations on contact navigation properties <a id="ContactNavigationOps"> </a></h2>
+<p>Relationships between a contact and other objects in the directory such as the contact&#39;s manager, direct group memberships, and direct reports are exposed through navigation properties. You can read and, in some cases, modify these relationships by targeting these navigation properties in your requests.</p>
+</div>
+</header>
+<div class="level">
+  <section class="primary">
+    <h4>Request</h4>
+    <div>
+      <pre><code class="lang-http">delete /contacts/{object_id}</code></pre>
+    </div>
+    <h4>Properties</h4>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>object_id</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The object ID (GUID) of the target contact.
+        </section>
+      </li>
+      <li>
+        <ol class="meta">
+          <li>
+            <code>api-version</code>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          Specifies the version of the Graph API to target. Beginning with version 1.5, the api-version string is represented in major.minor format. Prior releases were represented as date strings: '2013-11-08' and '2013-04-05'. Required.
+        </section>
+      </li>
+    </ul>
+    <h4>Returns</h4>
+    <h6>HTTP RESPONSE CODES</h6>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>204</code>
+          </li>
+        </ol>
+        <section class="description">
+          No Content. Indicates success.
+        </section>
+      </li>
+    </ul>
+  </section>
+  <section class="secondary">
+    <div class="api-example" data-api-example-endpoint="https://apiexproxy.azurewebsites.net/svc" data-api-swagger-url="contacts_swagger2.json" data-api-operation-id="delete contact"></div>
+  </section>
+</div>
+<header class="header" id="get contact manager link">
+  <div><h3 id="get-a-contact-s-manager-a-id-getcontactsmanager-a-">Get a contact&#39;s manager <a id="GetContactsManager"> </a></h3>
+<p>Gets the contact&#39;s manager from the <strong>manager</strong> navigation property.</p>
+<p>On success, returns a link to the [User] or [Contact] assigned as the contact&#39;s manager; otherwise, the response body contains error details. For more information about errors, see [Error Codes and Error Handling].</p>
+<p><strong>Note</strong>: You can remove the &quot;$links&quot; segment from the URL to return the [User] or [Contact] object instead of a link.</p>
+<hr>
+</div>
+</header>
+<div class="level">
+  <section class="primary">
+    <h4>Request</h4>
+    <div>
+      <pre><code class="lang-http">get /contacts/{object_id}/$links/manager</code></pre>
+    </div>
+    <h4>Properties</h4>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>object_id</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The object ID (GUID) of the target contact.
+        </section>
+      </li>
+      <li>
+        <ol class="meta">
+          <li>
+            <code>api-version</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The version of the Graph API to target. Beginning with version 1.5, the api-version string is represented in major.minor format. Prior releases were represented as date strings: '2013-11-08' and '2013-04-05'. Required.
+        </section>
+      </li>
+    </ul>
+    <h4>Returns</h4>
+    <h6>HTTP RESPONSE CODES</h6>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>200</code>
+          </li>
+        </ol>
+        <section class="description">
+          OK. Indicates success. A link to the contact's manager is returned.
+        </section>
+      </li>
+      <li>
+        <ol class="meta">
+          <li>
+            <code>404</code>
+          </li>
+        </ol>
+        <section class="description">
+          Not Found. The requested resource was not found. This can occur if the manager property is not currently set for the specified contact. It can also have other causes, for example, a bad domain. A code and associated message is returned with the error.
+        </section>
+      </li>
+    </ul>
+  </section>
+  <section class="secondary">
+    <div class="api-example" data-api-example-endpoint="https://apiexproxy.azurewebsites.net/svc" data-api-swagger-url="contacts_swagger2.json" data-api-operation-id="get contact manager link"></div>
+  </section>
+</div>
+<header class="header" id="update contact manager">
+  <div><h3 id="assign-a-contact-s-manager-a-id-assigncontactsmanager-a-">Assign a contact&#39;s manager <a id="AssignContactsManager"> </a></h3>
+<p>Assigns a contact&#39;s manager through the <strong>manager</strong> property. Either a user or a contact may be assigned. The request body contains a link to the [User] or [Contact] to assign. You can update the manager only for contacts that are not synced from an on-premises directory (the <strong>dirSyncEnabled</strong> property is <strong>null</strong> or <strong>false</strong>).</p>
+<p>On success, no response body is returned; otherwise, the response body contains error details. For more information about errors, see [Error Codes and Error Handling].</p>
+<hr>
+</div>
+</header>
+<div class="level">
+  <section class="primary">
+    <h4>Request</h4>
+    <div>
+      <pre><code class="lang-http">put /contacts/{object_id}/$links/manager</code></pre>
+    </div>
+    <h4>Properties</h4>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>object_id</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The object ID (GUID) of the target contact.
+        </section>
+      </li>
+      <li>
+        <ol class="meta">
+          <li>
+            <code>api-version</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The version of the Graph API to target. Beginning with version 1.5, the api-version string is represented in major.minor format. Prior releases were represented as date strings: '2013-11-08' and '2013-04-05'. Required.
+        </section>
+      </li>
+      <li>
+        <ol class="meta">
+          <li>
+            <code>bodyparam</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The request body contains a single property that specifies the URL of the user or contact to add as manager.
+        </section>
+      </li>
+    </ul>
+    <h4>Returns</h4>
+    <h6>HTTP RESPONSE CODES</h6>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>204</code>
+          </li>
+        </ol>
+        <section class="description">
+          No Content. Indicates success. No response body is returned.
+        </section>
+      </li>
+    </ul>
+  </section>
+  <section class="secondary">
+    <div class="api-example" data-api-example-endpoint="https://apiexproxy.azurewebsites.net/svc" data-api-swagger-url="contacts_swagger2.json" data-api-operation-id="update contact manager"></div>
+  </section>
+</div>
+<header class="header" id="delete contact manager by id">
+  <h3 id="graph_windows_net_myorganization_Contacts_delete_contact_manager_by_id" data-uid="graph.windows.net/myorganization/Contacts/delete contact manager by id"><p>Delete the contact&#39;s manager.</p>
+</h3>
+  <div>
+    <p><i>Required scope</i>: <b><i>Contacts.Write</i></b></p>
+  </div>
+</header>
+<div class="level">
+  <section class="primary">
+    <h4>Request</h4>
+    <div>
+      <pre><code class="lang-http">delete /contacts/{object_id}/$links/manager</code></pre>
+    </div>
+    <h4>Properties</h4>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>object_id</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The object ID (GUID) of the target contact.
+        </section>
+      </li>
+      <li>
+        <ol class="meta">
+          <li>
+            <code>api-version</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The version of the Graph API to target. Beginning with version 1.5, the api-version string is represented in major.minor format. Prior releases were represented as date strings: '2013-11-08' and '2013-04-05'. Required.
+        </section>
+      </li>
+    </ul>
+    <h4>Returns</h4>
+    <h6>HTTP RESPONSE CODES</h6>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>204</code>
+          </li>
+        </ol>
+        <section class="description">
+          No Content. Indicates success. N response body is returned.
+        </section>
+      </li>
+    </ul>
+  </section>
+  <section class="secondary">
+    <div class="api-example" data-api-example-endpoint="https://apiexproxy.azurewebsites.net/svc" data-api-swagger-url="contacts_swagger2.json" data-api-operation-id="delete contact manager by id"></div>
+  </section>
+</div>
+<header class="header" id="get contact direct reports links">
+  <div><h3 id="get-a-contact-s-direct-reports-a-id-getcontactsdirectreports-a-">Get a contact&#39;s direct reports <a id="GetContactsDirectReports"> </a></h3>
+<p>Gets the contact&#39;s direct reports from the <strong>directReports</strong> navigation property.</p>
+<p>On success, returns a collection of links to the [User]&#39;s and [Contact]&#39;s for whom this contact is assigned as manager; otherwise, the response body contains error details. For more information about errors, see [Error Codes and Error Handling].</p>
+<p><strong>Note</strong>: You can remove the &quot;$links&quot; segment from the URL to return  [DirectoryObject]s for the users and contacts instead of links.</p>
+<hr>
+</div>
+</header>
+<div class="level">
+  <section class="primary">
+    <h4>Request</h4>
+    <div>
+      <pre><code class="lang-http">get /contacts/{object_id}/$links/directReports</code></pre>
+    </div>
+    <h4>Properties</h4>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>object_id</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The object ID (GUID) of the target contact.
+        </section>
+      </li>
+      <li>
+        <ol class="meta">
+          <li>
+            <code>api-version</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The version of the Graph API to target. Beginning with version 1.5, the api-version string is represented in major.minor format. Prior releases were represented as date strings: '2013-11-08' and '2013-04-05'. Required.
+        </section>
+      </li>
+    </ul>
+    <h4>Returns</h4>
+    <h6>HTTP RESPONSE CODES</h6>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>200</code>
+          </li>
+        </ol>
+        <section class="description">
+          OK. Indicates success. One or more direct reports are returned.
+        </section>
+      </li>
+    </ul>
+  </section>
+  <section class="secondary">
+    <div class="api-example" data-api-example-endpoint="https://apiexproxy.azurewebsites.net/svc" data-api-swagger-url="contacts_swagger2.json" data-api-operation-id="get contact direct reports links"></div>
+  </section>
+</div>
+<header class="header" id="get contact memberOf links">
+  <div><h3 id="get-a-contact-s-group-memberships-a-id-getcontactsmemberships-a-">Get a contact&#39;s group memberships <a id="GetContactsMemberships"> </a></h3>
+<p>Gets the contact&#39;s group  memberships from the <strong>memberOf</strong> navigation property.</p>
+<p>This property returns only groups that the contact is a direct member of. To get all of the groups that the contact has direct or transitive membership in, call the [getMemberGroups] function.</p>
+<p>On success, returns a collection of links to the <a href="entity-and-complex-type-reference.html#GroupEntity">Group</a>s that this contact is a member of; otherwise, the response body contains error details. For more information about errors, see [Error Codes and Error Handling].</p>
+<p><strong>Note</strong>: You can remove the &quot;$links&quot; segment from the URL to return the <a href="entity-and-complex-type-reference.html#DirectoryObjectEntity">DirectoryObject</a>s for the groups instead of links.</p>
+<hr>
+<h2 id="functions-and-actions-on-contacts-a-id-contactfunctions-a-">Functions and actions on contacts <a id="ContactFunctions"> </a></h2>
+<p>You can call any of the following functions on a contact.</p>
+<h3 id="check-membership-in-a-specific-group-transitive-">Check membership in a specific group (transitive)</h3>
+<p>You can call the [isMemberOf] function to check for membership in a specific group. The check is transitive.</p>
+<h3 id="check-membership-in-a-list-of-groups-transitive-">Check membership in a list of groups (transitive)</h3>
+<p>You can call the [checkMemberGroups] function to check for membership in a list of groups. The check is transitive.</p>
+<h3 id="get-all-group-memberships-transitive-">Get all group memberships (transitive)</h3>
+<p>You can call the [getMemberGroups] function to return all the groups that the contact is a member of. The check is transitive, unlike reading the <a href="#GetContactsMemberships">memberOf</a> navigation property, which returns only the groups that the contact is a direct member of.</p>
+<hr>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li>Learn more about Graph API supported features, capabilities, and preview features in [Graph API concepts]</li>
+</ul>
+</div>
+</header>
+<div class="level">
+  <section class="primary">
+    <h4>Request</h4>
+    <div>
+      <pre><code class="lang-http">get /contacts/{object_id}/$links/memberOf</code></pre>
+    </div>
+    <h4>Properties</h4>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>object_id</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The object ID (GUID) of the target contact.
+        </section>
+      </li>
+      <li>
+        <ol class="meta">
+          <li>
+            <code>api-version</code>
+            <em>(required)</em>
+          </li>
+          <li>
+            <!--todo: complex type-->
+            <code>string</code>
+          </li>
+        </ol>
+        <section class="description">
+          The version of the Graph API to target. Beginning with version 1.5, the api-version string is represented in major.minor format. Prior releases were represented as date strings: '2013-11-08' and '2013-04-05'. Required.
+        </section>
+      </li>
+    </ul>
+    <h4>Returns</h4>
+    <h6>HTTP RESPONSE CODES</h6>
+    <ul class="member-details">
+      <li>
+        <ol class="meta">
+          <li>
+            <code>200</code>
+          </li>
+        </ol>
+        <section class="description">
+          OK. Indicates success. One or more groups and/or directory roles are returned.
+        </section>
+      </li>
+    </ul>
+  </section>
+  <section class="secondary">
+    <div class="api-example" data-api-example-endpoint="https://apiexproxy.azurewebsites.net/svc" data-api-swagger-url="contacts_swagger2.json" data-api-operation-id="get contact memberOf links"></div>
+  </section>
+</div>
+
+        </article>
+    </div>
+
+    <div id="openFeedbackContainer" class="openfeedback-container" style="position: absolute;"></div>
+    <script src="_themes/javascript/rest.js"></script>
+  </body>
+</html>
