@@ -1,0 +1,14 @@
+---
+- uid: try.it
+  name: Try It!
+- uid: test.request
+  name: Test Request
+- uid: sample.request
+  name: Sample Request
+- uid: sample.response
+  name: Sample Response
+- uid: response.header
+  name: Response Header
+- uid: response.code
+  name: Response Code
+---
