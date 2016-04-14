@@ -4,8 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {{ metadata }}
+    {% if page._op_canonicalUrl != null  %}<link href="{{ page._op_canonicalUrl}}" rel="canonical">{% endif %}
     <title>{{ page.title }}</title>
-    {% style _themes/css/9275c682d315972276cf.conceptual.css %}
+    {% style _themes/css/e86785ecf9be71d5637b.conceptual.css %}
   </head>
   <body>
 
@@ -62,11 +63,13 @@
             <div class="meta">
               <time datetime="" class="date">{{ page._op_gitContributorInformation.update_at }}</time>
               <time datetime="" class="reading-time">{% if page._op_wordCount < 200 %} 1{% else %}{{ page._op_wordCount | divided_by: 200 }}{% endif %} {% loc min.to.read %}</time>
+              {% if page._op_gitContributorInformation.contributors != null && page._op_gitContributorInformation.contributors.length > 0 %}
               <ul class="contributors">
                 {% for contributor in page._op_gitContributorInformation.contributors %}
                 <li><a href="{{ contributor.profile_url }}"><span style="background-image: url({{ contributor.profile_url }}.png)" alt="{{ contributor.display_name }}" class="contributor-avatar"></span></a></li>
                 {% endfor %}
               </ul>
+              {% endif %}
             </div>
           </div> 
         </div>
@@ -76,6 +79,13 @@
         </aside>
 
         {{ content }}
+        
+        {% if page.product_feedback_displaytext != null && page.product_feedback_url != null %}
+          <div class="product-feedback">
+            <span>{% loc product.feedback %}</span>
+            <a href="{{ page.product_feedback_url }}">{{ page.product_feedback_displaytext }}</a>
+          </div>
+        {% endif %}
       </div>
     </div>
 
@@ -86,6 +96,6 @@
     
     {% include footer.html %}
 
-    {% js _themes/javascript/9275c682d315972276cf.conceptual.js %}
+    {% js _themes/javascript/e86785ecf9be71d5637b.conceptual.js %}
   </body>
 </html>

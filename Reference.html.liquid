@@ -4,8 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {{ metadata }}
+    {% if page._op_canonicalUrl != null  %}<link href="{{ page._op_canonicalUrl}}" rel="canonical">{% endif %}
     <title>{{ page.title }}</title>
-    {% style _themes/css/9275c682d315972276cf.reference.css %}
+    {% style _themes/css/e86785ecf9be71d5637b.reference.css %}
   </head>
   <body>
 
@@ -83,12 +84,19 @@
           <article id="main-content" class="reference-content">
           {{ content }}
           </article>
+          
+          {% if page.product_feedback_displaytext != null && page.product_feedback_url != null %}
+            <div class="product-feedback">
+              <span>{% loc product.feedback %}</span>
+              <a href="{{ page.product_feedback_url }}">{{ page.product_feedback_displaytext }}</a>
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>
     <div id="openFeedbackContainer" class="openfeedback-container footer-layout"></div>
 
     {% include footer.html %}
-    {% js _themes/javascript/9275c682d315972276cf.reference.js %}
+    {% js _themes/javascript/e86785ecf9be71d5637b.reference.js %}
   </body>
 </html>

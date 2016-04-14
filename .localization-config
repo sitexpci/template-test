@@ -1,7 +1,7 @@
 {
   "locales": ["ar-sa", "bg-bg", "cs-cz", "da-dk", "de-de", "el-gr", "es-es", "fi-fi", "fr-fr", "he-il", "hu-hu", "id-id", "it-it", "ja-jp", "ko-kr", "nl-be", "nl-nl", "pt-br", "ro-ro", "ru-ru", "sv-se", "uk-ua", "zh-cn", "zh-tw"],
   "files": ["yml/*.yml"],
-  "includeDependencies": true,
+  "includeDependencies": false,
   "autoPush": true,
   "xliffVersion": "2.0"
 }

@@ -1,19 +1,24 @@
 /* Common CSS for conceptual and reference. */
+
 /* CSS web fonts, font-family, font-style, font-weight, etc. */
+
 html, body {
     font-family: "Segoe UI","Segeo WP",Tahoma,Arial,"Helvetica Neue",Helvetica,sans-serif;
 }
+
 code, kbd, pre, samp {
     font-family: Consolas,Menlo,Monaco,"Lucida Console","Liberation Mono","DejaVu Sans Mono","Bitstream Vera Sans Mono","Courier New",monospace,sans-serif;
 }
+
 @font-face {
     font-family: 'icons';
     src: url("../fonts/docs_icons.eot");
     src: url("../fonts/docs_icons.eot") format("embedded-opentype"),url("../fonts/docs_icons.ttf") format("truetype"),url("../fonts/docs_icons.svg") format("svg");
     font-weight: normal;
-    font-style: normal;
+    font-style: normal
 }
-[class^="icon-"], [class*=" icon-"] {
+
+[class^="icon-"],[class*=" icon-"], .alert h5 {
     font-family: 'icons' !important;
     speak: none;
     font-style: normal;
@@ -25,6 +30,7 @@ code, kbd, pre, samp {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 /*
 disable web fonts temporarily for the following reasons:
 1. current monolithic CSS approach would block page content rendering until the web fonts get loaded, it's a huge experience downside for slow networks
@@ -59,6 +65,7 @@ disable web fonts temporarily for the following reasons:
     }
 }
 */
+
 div.button a, div.step-by-step a {
     position: relative;
     display: inline-block;
@@ -71,93 +78,120 @@ div.button a, div.step-by-step a {
     border-radius: 2px;
     border: 0;
     background-color: #00a4f3;
-    color: #fcfcfc;
+    color: #fcfcfc
 }
+
 .theme-night div.button a, .theme-night div.step-by-step a {
     background-color: #00a4f3;
-    color: #1a1a1a;
+    color: #1a1a1a
 }
+
 .theme-hot-dog div.button a, .theme-hot-dog div.step-by-step a {
     background-color: #fefb00;
-    color: #ff2600;
+    color: #ff2600
 }
+
 div.button a:hover, div.step-by-step a:hover {
     -webkit-transform: translateY(1px);
     transform: translateY(1px);
     background-color: #0070a7;
-    color: #f5f5f5;
+    color: #f5f5f5
 }
+
 .theme-night div.button a:hover, .theme-night div.step-by-step a:hover {
     background-color: #0070a7;
     color: #242424;
 }
+
 .theme-hot-dog div.button a:hover, .theme-hot-dog div.step-by-step a:hover {
     background-color: #b2af00;
     color: #ff3714;
 }
+
 div.step-by-step a {
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
+
 .theme-night div.step-by-step {
     border-color: #2e2e2e;
 }
+
 .theme-hot-dog div.step-by-step {
-    border-color: #2e2e2e;
+    border-color: #2e2e2e
 }
+
 /*Override open-feedback ui styles*/
+
 .ofb-container.ofb-child-vote, .ofb-container>.ofb-vote {
     height: 44px !important;
 }
+
 @media only screen and (max-width: 500px) {
     .ofb-container.ofb-child-vote, .ofb-container>.ofb-vote {
         height: 80px !important;
     }
 }
+
 .ofb-container>.ofb-feedback, .ofb-container>.ofb-vote {
     background-color: #00a4f3 !important;
 }
+
 .ofb-container>.ofb-vote .ofb-content {
     padding: 8px 0 0 0 !important;
 }
+
 .ofb-container, .ofb-main-title {
     font-size: 13px !important;
 }
+
 .ofb-container button, .ofb-container>.ofb-feedback>.ofb-form .ofb-charcnt, .ofb-container>.ofb-thanks .ofb-appreciate, .ofb-secondary-title {
     font-size: 11px !important;
 }
+
 .ofb-container button {
     height: 28px !important;
     border-radius: 0px !important;
 }
+
 .ofb-container.ofb-child-feedback, .ofb-container>.ofb-feedback {
     height: 175px !important;
 }
+
 @media only screen and (max-width: 652px) {
     .ofb-container.ofb-child-feedback, .ofb-container>.ofb-feedback {
         height: 215px !important;
     }
 }
+
 .ofb-container>.ofb-feedback>.ofb-form>textarea {
     font-size: 13px !important;
     height: 80px !important;
 }
+
 .ofb-container > .ofb-thanks {
     height: 44px !important;
     background-color: #00a4f3 !important;
 }
+
 .ofb-container>.ofb-thanks .ofb-content {
     padding: 10px 0 0 0 !important;
 }
+
 .ofb-container, .ofb-container>.ofb-feedback>.ofb-form>textarea, .ofb-ui-font {
     font-family: wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif !important;
 }
+
 /*END: Override open-feedback ui styles*/
+
 /* Make hidden attribute compatible with old browser.*/
+
 [hidden] {
     display: none;
 }
+
 /* Language Picker */
+
 .lang-picker {
     float: right;
     font-size: 13px;
@@ -167,6 +201,7 @@ div.step-by-step a {
     padding-left: 10px;
     padding-right: 20px;
 }
+
 .lang-picker > .arrow {
     position: absolute;
     width: 7px;
@@ -175,6 +210,7 @@ div.step-by-step a {
     margin-left: 4px;
     background: url(../images/dropdown.png) 50% 50% no-repeat;
 }
+
 .lang-list {
     float: right;
     clear: right;
@@ -191,24 +227,30 @@ div.step-by-step a {
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     z-index: 230;
 }
+
 .lang-list .active, .lang-picker.active, .lang-picker:hover {
     background-color: #f1f1f1;
 }
+
 .lang-list ul {
     margin: 0px;
     padding: 0px;
 }
+
 .lang-list a {
     color: #2f2f2f;
     font-size: 15px;
     line-height: 20px;
 }
+
 .lang-list a.active {
     color: #00a4f3;
 }
+
 .lang-list li:hover {
     text-decoration: underline;
 }
+
 .lang-item {
     width: 200px;
     list-style: none;
@@ -219,7 +261,9 @@ div.step-by-step a {
     vertical-align: baseline;
     box-sizing: border-box;
 }
+
 /** default three-column language list is not visible, util the screen is large then 600px; */
+
 .three-column-container {
     display: none;
     clear: left;
@@ -228,58 +272,73 @@ div.step-by-step a {
     position: relative;
     right: 33.333%;
 }
+
 .three-column-container > .three-column-inner {
     float: left;
     width: 100%;
     position: relative;
     right: 33.33%;
+
 }
+
 .three-column-container > .three-column-inner > .three-column-1 {
     float: left;
     width: 29.33%;
     position: relative;
     left: 68.67%;
+
 }
+
 .three-column-container > .three-column-inner > .three-column-2 {
     float: left;
     width: 29.33%;
     position: relative;
     left: 72.67%;
     overflow: hidden;
+
 }
+
 .three-column-container > .three-column-inner > .three-column-3 {
     float: left;
     width: 29.33%;
     position: relative;
     left: 76.67%;
     overflow: hidden;
+
 }
+
 /* show two column */
+
 .two-column-container {
     display: block;
     float: right;
     width: 100%;
     position: relative;
 }
+
 .two-column-container > .two-column-1 {
     position: relative;
     overflow: hidden;
     margin: 0px;
     padding: 0px;
 }
+
 .two-column-container > .two-column-2 {
     position: relative;
     overflow: hidden;
     margin: 0px;
     padding: 0px;
 }
+
 @media screen and (min-width: 420px) {
     .lang-list {
         width: 400px;
     }
+
     .two-column-container {
         right: 50%;
     }
+
     .two-column-container > .two-column-1 {
         float: left;
         width: 46%;
@@ -291,22 +350,28 @@ div.step-by-step a {
         left: 56%;
     }
 }
+
 @media screen and (min-width: 610px) {
     .lang-list {
         width: 600px;
     }
+
     /* show three column */
     .two-column-container > * {
         display: none;
     }
+
     .three-column-container {
         display: block;
     }
 }
+
 #header {
     overflow: visible;
 }
+
 /* cookie-consent banner */
+
 #cookie-consent-section {
     display: none;
     margin: 0;
@@ -321,9 +386,11 @@ div.step-by-step a {
     clear: both;
     font-family: 'Segoe UI',Tahoma,Helvetica,Sans-Serif;
 }
+
 #cookie-consent-section * {
     font-family: 'Segoe UI',Tahoma,Helvetica,Sans-Serif;
 }
+
 #cookie-consent-section div.row {
     clear: both;
     margin: 0 auto;
@@ -331,10 +398,12 @@ div.step-by-step a {
     width: 97%;
     clear: both;
 }
+
 #cookie-consent-section a {
     text-decoration: none;
     color: #fff;
 }
+
 #cookie-consent-section div.left {
     background-color: #00a0cf;
     float: left;
@@ -345,6 +414,7 @@ div.step-by-step a {
     white-space: normal;
     box-sizing: border-box;
 }
+
 #cookie-consent-section div.middle {
     margin: -1px 0 0;
     padding: 2px 10px 2px 10px;
@@ -352,6 +422,7 @@ div.step-by-step a {
     background-color: #015c77;
     cursor: pointer;
 }
+
 #cookie-consent-section div.right a {
     float: right;
     padding-top: 3px;
@@ -361,11 +432,13 @@ div.step-by-step a {
     width: 15px;
     height: 16px;
 }
+
 @media screen and (max-width: 1262px) {
     #cookie-consent-section div.left {
         width: 70%;
     }
 }
+
 @media screen and (max-width: 644px) {
     #cookie-consent-section div.row {
         width: 80%;
@@ -378,9 +451,11 @@ div.step-by-step a {
         max-width: 90px;
     }
 }
+
 #footer #impressum-section {
     display: none;
 }
+
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;

@@ -29,4 +29,6 @@
   name: Author Name
 - uid: in.this.article
   name: In this article
+- uid: product.feedback
+  name: To submit a product feedback, please visit
 ---
