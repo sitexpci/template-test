@@ -1,0 +1,8 @@
+---
+- uid: signin
+  name: Sign In
+- uid: signout
+  name: Sign Out
+- uid: createProfile
+  name: Create Profile
+...
