@@ -1,6 +1,6 @@
 <script type="x-template" id="rest-api-form">
     <form class="sandbox">
-        <h6>Test Request</h6>
+        <h6><% loc test.request %></h6>
         <template v-for="param in parameters" class="control is-horizontal columns">
             <template v-if="param.isList && !param.isArray">
                 <input-select :model.sync="param"></input-select>
@@ -11,22 +11,22 @@
         </template>
 
         <p class="control is-horizontal on-right">
-            <a v-on:click="submitOperation" class="button is-primary is-small"><span class="icon icon-cloud"></span>Try It!</a>
+            <a v-on:click="submitOperation" class="button is-primary is-small"><span class="icon icon-cloud"></span><% loc try.it %></a>
         </p>
         <div class="request" v-show="showRequest">
-            <h6>Sample Request</h6>
+            <h6><% loc sample.request %></h6>
             <pre><code class="request nohighlight"></code></pre>
         </div>
 
         <div class="animation-progress-ring-20x20 progress" v-if="loading"></div>
 
         <div class="response" v-show="showResponse">
-            <h6>Sample Response</h6>
+            <h6><% loc sample.response %></h6>
             <pre><code class="response_body" v-bind:class="{ 'json': isJson}">{{sample_response}}</code></pre>
             <span class="response_header_span" v-show="showResponseHeader">
-                <h6>Response Header</h6>
+                <h6><% loc response.header %></h6>
                 <pre><code class="response_headers nohighlight"></code></pre>
-                <h6>Response Code</h6>
+                <h6><% loc response.code %></h6>
                 <pre><code class="response_code nohighlight"></code></pre>
             </span>
         </div>

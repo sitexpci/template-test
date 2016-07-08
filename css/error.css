@@ -1,0 +1,37 @@
+/* Breakpoints */
+
+.error-content {
+    max-width: 1360px;
+    margin: 0 auto 30px;
+    color: #000;
+}
+
+.error-content li {
+    font-family: sans-serif;
+    font-size: 13px;
+    margin: 0 0 10px;
+}
+
+.error-content h1 {
+    font-family: 'Segoe UI',Tahoma,Helvetica,Sans-Serif;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 50px;
+    margin-bottom: 22px;
+}
+
+.error-content h3 {
+    display: block;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    margin: 10px 0;
+}
+
+.error-content p {
+    display: block;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin: 0 0 10px;
+}

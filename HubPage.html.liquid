@@ -4,21 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="ms.pagetype" content="hubpage" />
-    <meta name="ms.sitename" content="DOCS" />
     {{ metadata }}
+    {% if page._op_canonicalUrl != null %}<link href="{{ page._op_canonicalUrl }}" rel="canonical">{% endif %}
     <title>{{ page.title }}</title>
-    {% style _themes/css/hubpage.css %}
+    {% style css/hubpage.css %}
   </head>
   <body>
-
-    {% include header.html %}
-
-    <div class="container" ms.pgarea="body">
-        {{ content }}
+    <header data-component="UXService">
+      {% include header.html %}
+    </header>
+    <div ms.pgarea="body">
+      {{ content }}
     </div>
-
-    {% include footer.html %}
-
-    {% js _themes/javascript/hubpage.js %}
+    <footer/>
+    {% js javascript/hubpage.js %}
   </body>
 </html>
